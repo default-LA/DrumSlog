@@ -1,3 +1,5 @@
+
+//save file with drum patterns and which sound file to use
 var store = 
 [
 	{
@@ -8,23 +10,25 @@ var store =
 	}
 ];	
 
-
+//initial draw when loading from savefile
 for (var i = 0; i < store.length; i++) {	
 	var $newRow = $('<div class="row" id="row' + i + '">');
 	$('.drum-machine').append($newRow);
 		for (var j = 0; j < store[i].pattern.length; j++){
+			var $switchOn = $('<div class="active-switch" id="switch' + j + '">');
+			var $switchOff = $('<div class="unactive-switch" id="switch' + j + '">');
 			if (store[i].pattern[j] === true){
-	    		$('#row' + [i]).append($('<div class="active-switch">'));
+	    		$('#row' + [i]).append($('<div class="switch active-switch">'));
 			} else {
-	    		$('#row' + [i]).append($('<div class="unactive-switch">'));
+	    		$('#row' + [i]).append($('<div class="switch unactive-switch">'));
 
 			};
 		};
-
-
 };
 
-
+$(".switch").click(function() {
+  $(this).toggleClass("active-switch unactive-switch")
+});
 
 
 

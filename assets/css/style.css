@@ -29,19 +29,17 @@ body {
 }
 
 
-.active-switch {
+.switch {
 	height: 60px;
 	width: 60px;
-	/*margin: 20px;*/
-	background-color: #FFECFF;
 	border: 1px solid black;
 	float: left;
 }
+
+.active-switch {	
+	background-color: #FFECFF;	
+}
+
 .unactive-switch {
-	height: 60px;
-	width: 60px;
-	/*margin: 20px;*/
-	background-color: #ECFF00;
-	border: 1px solid black;
-	float: left;
+	background-color: #ECFF00;	
 }
