@@ -6,12 +6,12 @@ body {
 	margin: 0 auto;
 	max-width: 1000px;
 	height: 100vh;
-	background-color: #FF0C0C;
+	background-color: #FFACAC;
 }
 
 .drum-machine {
 	width: 768px;
-	height: 480px;
+	/*height: 480px;*/
 	background-color: #ACFFFF;
 	margin: 0 auto;
 
@@ -37,9 +37,9 @@ body {
 }
 
 .active-switch {	
-	background-color: #FFECFF;	
+	background-color: #42f480;	
 }
 
 .unactive-switch {
-	background-color: #ECFF00;	
+	background-color: #f44141;	
 }
