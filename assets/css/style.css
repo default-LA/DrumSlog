@@ -1,0 +1,47 @@
+body {
+	text-align: center;
+}
+
+.page-container {
+	margin: 0 auto;
+	max-width: 1000px;
+	height: 100vh;
+	background-color: #FF0C0C;
+}
+
+.drum-machine {
+	width: 768px;
+	height: 480px;
+	background-color: #ACFFFF;
+	margin: 0 auto;
+
+}
+
+.row {
+	width: 100%;
+	height: 100px;
+	background-color: #FFEECC;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+
+}
+
+
+.active-switch {
+	height: 60px;
+	width: 60px;
+	/*margin: 20px;*/
+	background-color: #FFECFF;
+	border: 1px solid black;
+	float: left;
+}
+.unactive-switch {
+	height: 60px;
+	width: 60px;
+	/*margin: 20px;*/
+	background-color: #ECFF00;
+	border: 1px solid black;
+	float: left;
+}
