@@ -6,28 +6,23 @@ var snare = new Howl({
 	volume: 0.8
 });
 var hh = new Howl({
-	src: ["HHCD0.ogg"],
+	src: ["HHCD0.ogg"], //push variables into src when user can select sound
 	volume: 0.5
 });
-
-
-
 //save file with drum patterns and which sound file to use
 var store = 
 [
 	{
-	    "pattern": [true, false, false, false, true, false, true, false]
+	    "pattern": [true, false, false, false, true, true, false, false, true, false, false, false, true, false, true, false]
 	},{
 
-	    "pattern": [false, true, false, false, true, false, true, false] //booleans
+	    "pattern": [false, true, false, true, false, false, true, false, false, true, false, false, true, false, true, true] //booleans
 	},{
 
-	    "pattern": [false, true, false, false, true, false, true, false]
+	    "pattern": [true, true, false, false, true, true, true, false, true, false, true, false, true, false, true, false]
 	}
-];	
-
+];
 var temp = [] //contain pattern, sound variable, volume
-
 //initial draw when loading from savefile
 for (var i = 0; i < store.length; i++) {	
 	var $newRow = $('<div class="row" id="row' + i + '">');
@@ -44,9 +39,8 @@ for (var i = 0; i < store.length; i++) {
 	    		$('#row' + [i]).append($switchOff);
 	    		temp[i].push(false);
 			};
-		};
+		}; //++ to global variable to keep track of number of rows
 };
-
 $(".switch").click(function() {
 	var x = $(this).parent().index();
 	var y = $(this).index();
@@ -57,45 +51,31 @@ $(".switch").click(function() {
 		temp[x][y] = true;
 	};
 });
-
-
 var i = 0
 function startLoop(){		
 	setTimeout(function(){
 		if (temp[0][i] === true){
-			console.log("bd" + Math.random());
 			kick.play();
 
 		} else {
 		}
-		if (temp[1][i] === true){
-			console.log("sd" + Math.random());
+		if (temp[1][i] === true){ //make this more efficient!!!
 			snare.play();
 		} else {
 		}
 		if (temp[2][i] === true){
-			console.log("hh" + Math.random());
 			hh.play();
 		} else {
 		}
 		i++;
-		if (i < 8){
+		if (i < temp[0].length){
 			startLoop();
 		} else {
 			i = 0;
 			startLoop();
 		}
-
-	}, 100) //bpm variable
+	}, 110) //bpm variable
 }
-
-
-
-
-
-
-
-
 // var saveFile = 
 // [
 // 	{
