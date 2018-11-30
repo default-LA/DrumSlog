@@ -9,17 +9,24 @@ var hh = new Howl({
 	src: ["HHCD0.ogg"], //push variables into src when user can select sound
 	volume: 0.5
 });
+var ohh = new Howl({
+	src: ["HHOD2.ogg"],
+	volume: 0.7
+});
 //save file with drum patterns and which sound file to use
 var store = 
 [
 	{
-	    "pattern": [true, false, false, false, true, true, false, false, true, false, false, false, true, false, true, false]
+	    "pattern": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
 	},{
 
-	    "pattern": [false, true, false, true, false, false, true, false, false, true, false, false, true, false, true, true] //booleans
+	    "pattern": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false] //booleans
 	},{
 
-	    "pattern": [true, true, false, false, true, true, true, false, true, false, true, false, true, false, true, false]
+	    "pattern": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+	},{
+
+	    "pattern": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
 	}
 ];
 var temp = [] //contain pattern, sound variable, volume
@@ -66,9 +73,9 @@ for (var i = 0; i < store.length; i++) {
 };
 $(".switch").click(function() {
 	var x = $(this).parents().eq(1).index() - 1;
-	console.log(x);
+	// console.log(x);
 	var y = $(this).index();
-	console.log(y);
+	// console.log(y);
 	$(this).toggleClass("active-switch unactive-switch");
 	if (temp[x][y] === true){
 		temp[x][y] = false;
@@ -91,22 +98,35 @@ $(".stop-btn").click(function(){
 
 var s = 0
 var playing = false;
+
+// function ledBlink{
+// 	$(".led:eq(" + s + ")").addClass("red-led-lit");
+// 	setTimeout(function () { 
+// 	    $(".led:eq(" + s + ")").removeClass("red-led-lit");
+// 	}, 100);
+// }
+
 function startLoop(){	
 	if (playing === true){	
 		setTimeout(function(){
+			$(".led:eq(" + s + ")").addClass("red-led-lit");
+			setTimeout(function () { 
+			    $(".led:eq(" + s + ")").removeClass("red-led-lit");
+			}, 10);
 			if (temp[0][s] === true){
 				kick.play();
 
-			} else {
 			}
 			if (temp[1][s] === true){ //make this more efficient!!!
 				snare.play();
-			} else {
 			}
 			if (temp[2][s] === true){
 				hh.play();
-			} else {
 			}
+			if (temp[3][s] === true){
+				ohh.play();
+			}
+			// $(".led:eq(" + s + ")").removeClass("red-led-lit");
 			s++;
 			if (s < temp[0].length){
 				startLoop();
@@ -114,6 +134,7 @@ function startLoop(){
 				s = 0;
 				startLoop();
 			}
+
 		}, 110) //bpm variable
 	} else {return;}
 }

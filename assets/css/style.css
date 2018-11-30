@@ -14,12 +14,13 @@ body {
 	height: 550px;
 	max-height: 600px;
 	margin: 0 auto;
-	border: 3px solid red;
+	border: 3px solid dark-gray;
+	box-shadow: 0 0 10px 3px gray;
 	padding: 5px;
 }
 .top-bar {
 	width: 100%;
-	background-color: #CCFFCC;
+	background-color: #282828;
 	height: 40px;
 	position: relative;
 
@@ -30,7 +31,7 @@ body {
 	float: left;
 	width: 60px;
 	height: 25px;
-	background-color: #FFCCCC;
+	background-color: #7c7c6a;
 }
 .badge {
 	width: 200px;
@@ -43,7 +44,7 @@ body {
 .tech-sect {
 	height: 500px;
 	width: 890px;
-	background-color: #CCFFFF;
+	background-color: #232322;
 	padding: 5px;
 
 
@@ -52,7 +53,7 @@ body {
 .left-sect {
 	width: 120px;
 	height: 480px;
-	background-color: #CCCCFF;
+	background-color: #282828;
 	margin-right: 10px;
 	float: left;
 	padding: 10px;
@@ -118,7 +119,7 @@ body {
 }
 
 .right-sect {
-	background-color: #DDBBEE;
+	background-color: #282828;
 	padding: 5px;
 	width: 730px;
 	height: 490px;
@@ -129,7 +130,7 @@ body {
 .led-step {
 	width: 630px;
 	height: 30px;
-	background-color: #FFCCEE;
+	background-color: #1c1c1c;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -139,10 +140,11 @@ body {
 }
 .led {
 	float: left;
-	width: 30px;
+	width: 20px;
 	height: 20px;
-	border: 1px solid black;
-	text-align: center;
+	background-color: #490505;
+	border: 1px solid dark-gray;
+	border-radius: 50%;
 
 }
 
@@ -150,7 +152,7 @@ body {
 	margin-top: 5px;
 	width: 730px;
 	height: 60px;
-	background-color: #FFEECC;
+	background-color: #1c1c1c;
 	
 }
 .left-control {
@@ -205,17 +207,42 @@ body {
 .switch {
 	height: 30px;
 	width: 30px;
-	border: 1px solid black;
+	border: 1px solid #043d0a;
 	float: left;
 }
 
 .active-switch {	
-	background-color: #42f480;	
+	background-color: #10f228;	
+	box-shadow: 0 0 15px 3px #10f228;
+	border: 1px solid #10a51a;
+
 }
 
 .unactive-switch {
-	background-color: #f44141;	
+	background-color: #043d0a;	
 }
 .add-remove {
 
+}
+
+.red-led-lit {
+	background-color: #ff1e1e;
+	box-shadow: 0 0 10px 5px #ff1e1e;
+	animation: ledOut 50ms;
+	-o-animation: ledOut 50ms;
+	-moz-animation: ledOut 50ms;
+	-webkit-animation: ledOut 50ms;
+	animation-fill-mode: forwards;
+	
+}
+
+@keyframes ledOut {
+	from {}
+	to {
+		
+		background-color: #490505;
+		border: 1px solid dark-gray;
+		box-shadow: 0 0 0 0 #000000;
+
+	} 
 }
