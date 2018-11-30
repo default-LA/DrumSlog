@@ -23,27 +23,52 @@ var store =
 	}
 ];
 var temp = [] //contain pattern, sound variable, volume
+
+//========================================
 //initial draw when loading from savefile
+//========================================
 for (var i = 0; i < store.length; i++) {	
-	var $newRow = $('<div class="row" id="row' + i + '">');
-	$('.drum-machine').append($newRow);
+	var $newRow = $(`<div class="row" id="row` + i + `">
+								<div class="left-control">
+									<div class="top-controls">
+										<div class="top-sect">V</div>						
+										<div class="top-sect">
+											<div class="mute-led">0</div>
+											<div class="led-text">mute</div>
+										</div>
+										<div class="top-sect">
+											<div class="solo-led">0</div>
+											<div class="led-text">solo</div>
+										</div>
+									</div>
+									<div class="sample-disp">bd03.ogg</div>
+								</div>
+								<div class="step-btn" id="step-btn` + i + `">
+								
+								</div>
+								<div class="add-remove"></div>
+							</div>`);
+	$(".right-sect").append($newRow);
 	//push sound variable into temp array
 		for (var j = 0; j < store[i].pattern.length; j++){
 			var $switchOn = $('<div id="switch' + j + '" class="switch active-switch">');
 			var $switchOff = $('<div id="switch' + j + '" class="switch unactive-switch">');
 			temp[i] = temp[i] || [];
 			if (store[i].pattern[j] === true){
-	    		$('#row' + [i]).append($switchOn);
+	    		$("#step-btn" + i).append($switchOn);
 	    		temp[i].push(true);
 			} else {
-	    		$('#row' + [i]).append($switchOff);
+	    		$("#step-btn" + i).append($switchOff);
 	    		temp[i].push(false);
+
 			};
 		}; //++ to global variable to keep track of number of rows
 };
 $(".switch").click(function() {
-	var x = $(this).parent().index();
+	var x = $(this).parents().eq(1).index() - 1;
+	console.log(x);
 	var y = $(this).index();
+	console.log(y);
 	$(this).toggleClass("active-switch unactive-switch");
 	if (temp[x][y] === true){
 		temp[x][y] = false;
@@ -51,30 +76,46 @@ $(".switch").click(function() {
 		temp[x][y] = true;
 	};
 });
-var i = 0
-function startLoop(){		
-	setTimeout(function(){
-		if (temp[0][i] === true){
-			kick.play();
 
-		} else {
-		}
-		if (temp[1][i] === true){ //make this more efficient!!!
-			snare.play();
-		} else {
-		}
-		if (temp[2][i] === true){
-			hh.play();
-		} else {
-		}
-		i++;
-		if (i < temp[0].length){
-			startLoop();
-		} else {
-			i = 0;
-			startLoop();
-		}
-	}, 110) //bpm variable
+$(".play-btn").click(function(){
+	if (playing === false){
+		playing = true;
+		console.log("playing");
+		startLoop()
+	} else {return;}
+});
+$(".stop-btn").click(function(){
+	playing = false;
+	console.log("stopped");
+});
+
+var s = 0
+var playing = false;
+function startLoop(){	
+	if (playing === true){	
+		setTimeout(function(){
+			if (temp[0][s] === true){
+				kick.play();
+
+			} else {
+			}
+			if (temp[1][s] === true){ //make this more efficient!!!
+				snare.play();
+			} else {
+			}
+			if (temp[2][s] === true){
+				hh.play();
+			} else {
+			}
+			s++;
+			if (s < temp[0].length){
+				startLoop();
+			} else {
+				s = 0;
+				startLoop();
+			}
+		}, 110) //bpm variable
+	} else {return;}
 }
 // var saveFile = 
 // [
