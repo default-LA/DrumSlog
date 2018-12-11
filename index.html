@@ -5,10 +5,832 @@
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
+
 	<div class="page-container">
+
 		<h1> drum </h1>
 		<div class="main-container">
-			<div class="drum-machine">
+			<div class="drum-machine">				
+				<div class="sound-select-popup">
+					<div class="sound-menu-container">
+						<div class="menu-box"></div>
+						<div class="menu-box"></div>
+						<div class="menu-box"></div>
+						<div class="menu-box"></div>
+						<div class="sound-bank"></div>
+						<div class="ok-btns">
+							<div class="okay-btn">OKAY</div>
+							<div class="canc-btn">CANCEL</div>
+						</div>
+						<div class="menu-folder-one">
+							<ul>
+								<li>DRUMS</li>
+								<li>NOTES</li>
+							</ul>
+						</div>	
+
+						<div id="d0" class="menu-folder-two">
+							<ul>
+								<li>808</li>
+								<li>909</li>
+								<li>electronica</li>
+								<li>experimental</li>
+								<li>gabber</li>
+								<li>techno</li>
+								<li>vintage</li>
+								<li>world</li>
+							</ul>
+						</div>
+
+
+						<div id="d1" class="menu-folder-two">
+							<ul>
+								<li>bass</li>
+								<li>piano</li>
+								<li>synth</li>
+								<li>vocal</li>
+							</ul>
+						</div>
+
+						<div id="d00" class="menu-folder-three">
+							<ul>
+								<li>bassdrum</li>
+								<li>clap</li>
+								<li>closed hihat</li>
+								<li>crash</li>
+								<li>misc</li>
+								<li>open hihat</li>
+								<li>snare drum</li>
+								<li>toms</li>
+							</ul>
+						</div>
+						<div id="d000" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_808_bd0</li>
+								<li class="sound-item">snd_dr_808_bd1</li>
+								<li class="sound-item">snd_dr_808_bd2</li>
+								<li class="sound-item">snd_dr_808_bd3</li>
+								<li class="sound-item">snd_dr_808_bd4</li>
+							</ul>
+						</div>
+						<div id="d001" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_808_cl0</li>
+							</ul>
+						</div>
+						<div id="d002" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_808_chh0</li>
+							</ul>
+						</div>
+						<div id="d003" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_808_cr0</li>
+								<li class="sound-item">snd_dr_808_cr1</li>
+							</ul>
+						</div>
+						<div id="d004" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_808_misc0</li>
+								<li class="sound-item">snd_dr_808_misc1</li>
+								<li class="sound-item">snd_dr_808_misc2</li>
+							</ul>
+						</div>
+						<div id="d005" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_808_ohh0</li>
+							</ul>
+						</div>
+						<div id="d006" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_808_sd0</li>
+								<li class="sound-item">snd_dr_808_sd1</li>
+							</ul>
+						</div>
+						<div id="d007" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_808_tom0</li>
+								<li class="sound-item">snd_dr_808_tom1</li>
+								<li class="sound-item">snd_dr_808_tom2</li>
+							</ul>
+						</div>
+						<div id="d01" class="menu-folder-three">
+							<ul>
+								<li>bassdrum</li>
+								<li>clap</li>
+								<li>closed hihat</li>
+								<li>crash</li>
+								<li>misc</li>
+								<li>open hihat</li>
+								<li>ride</li>
+								<li>snare drum</li>
+								<li>toms</li>
+							</ul>
+						</div>
+						<div id="d010" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_909_bd0</li>
+								<li class="sound-item">snd_dr_909_bd1</li>
+								<li class="sound-item">snd_dr_909_bd2</li>
+								<li class="sound-item">snd_dr_909_bd3</li>
+								<li class="sound-item">snd_dr_909_bd4</li>
+								<li class="sound-item">snd_dr_909_bd5</li>
+							</ul>
+						</div>
+						<div id="d011" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_909_cl0</li>
+								<li class="sound-item">snd_dr_909_cl1</li>
+							</ul>
+						</div>
+						<div id="d012" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_909_chh0</li>
+								<li class="sound-item">snd_dr_909_chh1</li>
+								<li class="sound-item">snd_dr_909_chh2</li>
+								<li class="sound-item">snd_dr_909_chh3</li>
+							</ul>
+						</div>
+						<div id="d013" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_909_cr0</li>
+								<li class="sound-item">snd_dr_909_cr1</li>
+							</ul>
+						</div>
+						<div id="d014" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_909_misc0</li>
+							</ul>
+						</div>
+						<div id="d015" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_909_ohh0</li>
+								<li class="sound-item">snd_dr_909_ohh1</li>
+								<li class="sound-item">snd_dr_909_ohh2</li>
+								<li class="sound-item">snd_dr_909_ohh3</li>
+							</ul>
+						</div>
+						<div id="d016" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_909_ride0</li>
+								<li class="sound-item">snd_dr_909_ride1</li>
+								<li class="sound-item">snd_dr_909_ride2</li>
+							</ul>
+						</div>
+						<div id="d017" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_909_sd0</li>
+								<li class="sound-item">snd_dr_909_sd10</li>
+								<li class="sound-item">snd_dr_909_sd1</li>
+								<li class="sound-item">snd_dr_909_sd2</li>
+								<li class="sound-item">snd_dr_909_sd3</li>
+								<li class="sound-item">snd_dr_909_sd4</li>
+								<li class="sound-item">snd_dr_909_sd5</li>
+								<li class="sound-item">snd_dr_909_sd6</li>
+								<li class="sound-item">snd_dr_909_sd7</li>
+								<li class="sound-item">snd_dr_909_sd8</li>
+								<li class="sound-item">snd_dr_909_sd9</li>
+							</ul>
+						</div>
+						<div id="d018" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_909_tom0</li>
+								<li class="sound-item">snd_dr_909_tom1</li>
+								<li class="sound-item">snd_dr_909_tom2</li>
+							</ul>
+						</div>
+
+						<div id="d02" class="menu-folder-three">
+							<ul>
+								<li>bassdrum</li>
+								<li>clap</li>
+								<li>closed hihat</li>
+								<li>crash</li>
+								<li>misc</li>
+								<li>open hihat</li>
+								<li>ride</li>
+								<li>snare drum</li>
+							</ul>
+						</div>
+						<div id="d020" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_ele_bd0</li>
+								<li class="sound-item">snd_dr_ele_bd10</li>
+								<li class="sound-item">snd_dr_ele_bd11</li>
+								<li class="sound-item">snd_dr_ele_bd1</li>
+								<li class="sound-item">snd_dr_ele_bd2</li>
+								<li class="sound-item">snd_dr_ele_bd3</li>
+								<li class="sound-item">snd_dr_ele_bd4</li>
+								<li class="sound-item">snd_dr_ele_bd5</li>
+								<li class="sound-item">snd_dr_ele_bd6</li>
+								<li class="sound-item">snd_dr_ele_bd7</li>
+								<li class="sound-item">snd_dr_ele_bd8</li>
+								<li class="sound-item">snd_dr_ele_bd9</li>
+							</ul>
+						</div>
+						<div id="d021" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_ele_cl0</li>
+								<li class="sound-item">snd_dr_ele_cl1</li>
+							</ul>
+						</div>
+						<div id="d022" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_ele_chh0</li>
+								<li class="sound-item">snd_dr_ele_chh1</li>
+								<li class="sound-item">snd_dr_ele_chh2</li>
+								<li class="sound-item">snd_dr_ele_chh3</li>
+								<li class="sound-item">snd_dr_ele_chh4</li>
+								<li class="sound-item">snd_dr_ele_chh5</li>
+							</ul>
+						</div>
+						<div id="d023" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_ele_cr0</li>
+								<li class="sound-item">snd_dr_ele_cr1</li>
+							</ul>
+						</div>
+						<div id="d024" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_ele_misc0</li>
+								<li class="sound-item">snd_dr_ele_misc10</li>
+								<li class="sound-item">snd_dr_ele_misc11</li>
+								<li class="sound-item">snd_dr_ele_misc12</li>
+								<li class="sound-item">snd_dr_ele_misc13</li>
+								<li class="sound-item">snd_dr_ele_misc14</li>
+								<li class="sound-item">snd_dr_ele_misc15</li>
+								<li class="sound-item">snd_dr_ele_misc16</li>
+								<li class="sound-item">snd_dr_ele_misc17</li>
+								<li class="sound-item">snd_dr_ele_misc18</li>
+								<li class="sound-item">snd_dr_ele_misc19</li>
+								<li class="sound-item">snd_dr_ele_misc1</li>
+								<li class="sound-item">snd_dr_ele_misc20</li>
+								<li class="sound-item">snd_dr_ele_misc21</li>
+								<li class="sound-item">snd_dr_ele_misc2</li>
+								<li class="sound-item">snd_dr_ele_misc3</li>
+								<li class="sound-item">snd_dr_ele_misc4</li>
+								<li class="sound-item">snd_dr_ele_misc5</li>
+								<li class="sound-item">snd_dr_ele_misc6</li>
+								<li class="sound-item">snd_dr_ele_misc7</li>
+								<li class="sound-item">snd_dr_ele_misc8</li>
+								<li class="sound-item">snd_dr_ele_misc9</li>
+							</ul>
+						</div>
+						<div id="d025" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_ele_ohh0</li>
+							</ul>
+						</div>
+						<div id="d026" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_ele_ride0</li>
+								<li class="sound-item">snd_dr_ele_ride1</li>
+								<li class="sound-item">snd_dr_ele_ride2</li>
+							</ul>
+						</div>
+						<div id="d027" class="menu-folder-four">
+							<ul>								
+								<li class="sound-item">snd_dr_ele_sd0</li>
+								<li class="sound-item">snd_dr_ele_sd1</li>
+								<li class="sound-item">snd_dr_ele_sd2</li>
+								<li class="sound-item">snd_dr_ele_sd3</li>
+								<li class="sound-item">snd_dr_ele_sd4</li>
+								<li class="sound-item">snd_dr_ele_sd5</li>
+							</ul>
+						</div>
+
+						<div id="d03" class="menu-folder-three">
+							<ul>
+								<li>bassdrum</li>
+								<li>glitch</li>
+								<li>hits</li>
+								<li>percussion</li>
+								<li>snare drum</li>
+							</ul>
+						</div>
+						<div id="d030" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_exp_bd0</li>
+								<li class="sound-item">snd_dr_exp_bd1</li>
+								<li class="sound-item">snd_dr_exp_bd2</li>
+								<li class="sound-item">snd_dr_exp_bd3</li>
+								<li class="sound-item">snd_dr_exp_bd4</li>
+								<li class="sound-item">snd_dr_exp_bd5</li>
+								<li class="sound-item">snd_dr_exp_bd6</li>
+							</ul>
+						</div>
+						<div id="d031" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_exp_gl0</li>
+								<li class="sound-item">snd_dr_exp_gl1</li>
+								<li class="sound-item">snd_dr_exp_gl2</li>
+								<li class="sound-item">snd_dr_exp_gl3</li>
+								<li class="sound-item">snd_dr_exp_gl4</li>
+								<li class="sound-item">snd_dr_exp_gl5</li>
+								<li class="sound-item">snd_dr_exp_gl6</li>
+								<li class="sound-item">snd_dr_exp_gl7</li>
+							</ul>
+						</div>
+						<div id="d032" class="menu-folder-four">
+							<ul>								
+								<li class="sound-item">snd_dr_exp_hit0</li>
+								<li class="sound-item">snd_dr_exp_hit10</li>
+								<li class="sound-item">snd_dr_exp_hit11</li>
+								<li class="sound-item">snd_dr_exp_hit1</li>
+								<li class="sound-item">snd_dr_exp_hit2</li>
+								<li class="sound-item">snd_dr_exp_hit3</li>
+								<li class="sound-item">snd_dr_exp_hit4</li>
+								<li class="sound-item">snd_dr_exp_hit5</li>
+								<li class="sound-item">snd_dr_exp_hit6</li>
+								<li class="sound-item">snd_dr_exp_hit7</li>
+								<li class="sound-item">snd_dr_exp_hit8</li>
+								<li class="sound-item">snd_dr_exp_hit9</li>
+							</ul>
+						</div>
+						<div id="d033" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_exp_perc0</li>
+								<li class="sound-item">snd_dr_exp_perc1</li>
+								<li class="sound-item">snd_dr_exp_perc2</li>
+								<li class="sound-item">snd_dr_exp_perc3</li>
+								<li class="sound-item">snd_dr_exp_perc4</li>
+								<li class="sound-item">snd_dr_exp_perc5</li>
+								<li class="sound-item">snd_dr_exp_perc6</li>
+								<li class="sound-item">snd_dr_exp_perc7</li>
+							</ul>
+						</div>
+						<div id="d034" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_exp_sd0</li>
+								<li class="sound-item">snd_dr_exp_sd1</li>
+								<li class="sound-item">snd_dr_exp_sd2</li>
+								<li class="sound-item">snd_dr_exp_sd3</li>
+								<li class="sound-item">snd_dr_exp_sd4</li>
+								<li class="sound-item">snd_dr_exp_sd5</li>
+								<li class="sound-item">snd_dr_exp_sd6</li>
+							</ul>
+						</div>
+
+						<div id="d04" class="menu-folder-three">
+							<ul>
+								<li>bassdrum</li>
+								<li>clap</li>
+								<li>closed hihat</li>
+								<li>crash</li>
+								<li>open hihat</li>
+								<li>ride</li>
+								<li>snare drum</li>
+								<li>toms</li>
+							</ul>
+						</div>
+						<div id="d040" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_gab_bd0</li>
+								<li class="sound-item">snd_dr_gab_bd1</li>
+								<li class="sound-item">snd_dr_gab_bd2</li>
+							</ul>
+						</div>
+						<div id="d041" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_gab_cl0</li>
+							</ul>
+						</div>
+						<div id="d042" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_gab_chh0</li>
+							</ul>
+						</div>
+						<div id="d043" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_gab_cr0</li>
+							</ul>
+						</div>
+						<div id="d044" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_gab_ohh0</li>
+							</ul>
+						</div>
+						<div id="d045" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_gab_ride0</li>
+							</ul>
+						</div>
+						<div id="d046" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_gab_sd0</li>
+							</ul>
+						</div>
+						<div id="d047" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_gab_tom0</li>
+								<li class="sound-item">snd_dr_gab_tom1</li>
+								<li class="sound-item">snd_dr_gab_tom2</li>
+								<li class="sound-item">snd_dr_gab_tom3</li>
+							</ul>
+						</div>
+
+						<div id="d05" class="menu-folder-three">
+							<ul>
+								<li>bassdrum</li>
+								<li>clap</li>
+								<li>closed hihat</li>
+								<li>crash</li>
+								<li>misc</li>
+								<li>open hihat</li>
+								<li>ride</li>
+								<li>snare drum</li>
+							</ul>
+						</div>
+						<div id="d050" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_tec_bd0</li>
+								<li class="sound-item">snd_dr_tec_bd10</li>
+								<li class="sound-item">snd_dr_tec_bd11</li>
+								<li class="sound-item">snd_dr_tec_bd12</li>
+								<li class="sound-item">snd_dr_tec_bd1</li>
+								<li class="sound-item">snd_dr_tec_bd2</li>
+								<li class="sound-item">snd_dr_tec_bd3</li>
+								<li class="sound-item">snd_dr_tec_bd4</li>
+								<li class="sound-item">snd_dr_tec_bd5</li>
+								<li class="sound-item">snd_dr_tec_bd6</li>
+								<li class="sound-item">snd_dr_tec_bd7</li>
+								<li class="sound-item">snd_dr_tec_bd8</li>
+								<li class="sound-item">snd_dr_tec_bd9</li>
+							</ul>
+						</div>
+						<div id="d051" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_tec_cl0</li>
+								<li class="sound-item">snd_dr_tec_cl1</li>
+								<li class="sound-item">snd_dr_tec_cl2</li>
+								<li class="sound-item">snd_dr_tec_cl3</li>
+								<li class="sound-item">snd_dr_tec_cl4</li>
+								<li class="sound-item">snd_dr_tec_cl5</li>
+								<li class="sound-item">snd_dr_tec_cl6</li>
+								<li class="sound-item">snd_dr_tec_cl7</li>
+								<li class="sound-item">snd_dr_tec_cl8</li>
+							</ul>
+						</div>
+						<div id="d052" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_tec_chh0</li>
+								<li class="sound-item">snd_dr_tec_chh10</li>
+								<li class="sound-item">snd_dr_tec_chh11</li>
+								<li class="sound-item">snd_dr_tec_chh12</li>
+								<li class="sound-item">snd_dr_tec_chh13</li>
+								<li class="sound-item">snd_dr_tec_chh1</li>
+								<li class="sound-item">snd_dr_tec_chh2</li>
+								<li class="sound-item">snd_dr_tec_chh3</li>
+								<li class="sound-item">snd_dr_tec_chh4</li>
+								<li class="sound-item">snd_dr_tec_chh5</li>
+								<li class="sound-item">snd_dr_tec_chh6</li>
+								<li class="sound-item">snd_dr_tec_chh7</li>
+								<li class="sound-item">snd_dr_tec_chh8</li>
+								<li class="sound-item">snd_dr_tec_chh9</li>
+							</ul>
+						</div>
+						<div id="d053" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_tec_cr0</li>
+								<li class="sound-item">snd_dr_tec_cr1</li>
+								<li class="sound-item">snd_dr_tec_cr2</li>
+							</ul>
+						</div>
+						<div id="d054" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_tec_misc0</li>
+								<li class="sound-item">snd_dr_tec_misc10</li>
+								<li class="sound-item">snd_dr_tec_misc11</li>
+								<li class="sound-item">snd_dr_tec_misc12</li>
+								<li class="sound-item">snd_dr_tec_misc13</li>
+								<li class="sound-item">snd_dr_tec_misc14</li>
+								<li class="sound-item">snd_dr_tec_misc15</li>
+								<li class="sound-item">snd_dr_tec_misc16</li>
+								<li class="sound-item">snd_dr_tec_misc17</li>
+								<li class="sound-item">snd_dr_tec_misc18</li>
+								<li class="sound-item">snd_dr_tec_misc1</li>
+								<li class="sound-item">snd_dr_tec_misc2</li>
+								<li class="sound-item">snd_dr_tec_misc3</li>
+								<li class="sound-item">snd_dr_tec_misc4</li>
+								<li class="sound-item">snd_dr_tec_misc5</li>
+								<li class="sound-item">snd_dr_tec_misc6</li>
+								<li class="sound-item">snd_dr_tec_misc7</li>
+								<li class="sound-item">snd_dr_tec_misc8</li>
+								<li class="sound-item">snd_dr_tec_misc9</li>
+							</ul>
+						</div>
+						<div id="d055" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_tec_ohh0</li>
+								<li class="sound-item">snd_dr_tec_ohh1</li>
+								<li class="sound-item">snd_dr_tec_ohh2</li>
+								<li class="sound-item">snd_dr_tec_ohh3</li>
+								<li class="sound-item">snd_dr_tec_ohh4</li>
+								<li class="sound-item">snd_dr_tec_ohh5</li>
+								<li class="sound-item">snd_dr_tec_ohh6</li>
+								<li class="sound-item">snd_dr_tec_ohh7</li>
+								<li class="sound-item">snd_dr_tec_ohh8</li>
+							</ul>
+						</div>
+						<div id="d056" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_tec_ride0</li>
+								<li class="sound-item">snd_dr_tec_ride1</li>
+								<li class="sound-item">snd_dr_tec_ride2</li>
+								<li class="sound-item">snd_dr_tec_ride3</li>
+								<li class="sound-item">snd_dr_tec_ride4</li>
+								<li class="sound-item">snd_dr_tec_ride5</li>
+							</ul>
+						</div>
+						<div id="d057" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_tec_sd0</li>
+								<li class="sound-item">snd_dr_tec_sd10</li>
+								<li class="sound-item">snd_dr_tec_sd11</li>
+								<li class="sound-item">snd_dr_tec_sd12</li>
+								<li class="sound-item">snd_dr_tec_sd13</li>
+								<li class="sound-item">snd_dr_tec_sd14</li>
+								<li class="sound-item">snd_dr_tec_sd15</li>
+								<li class="sound-item">snd_dr_tec_sd16</li>
+								<li class="sound-item">snd_dr_tec_sd17</li>
+								<li class="sound-item">snd_dr_tec_sd18</li>
+								<li class="sound-item">snd_dr_tec_sd19</li>
+								<li class="sound-item">snd_dr_tec_sd1</li>
+								<li class="sound-item">snd_dr_tec_sd2</li>
+								<li class="sound-item">snd_dr_tec_sd3</li>
+								<li class="sound-item">snd_dr_tec_sd4</li>
+								<li class="sound-item">snd_dr_tec_sd5</li>
+								<li class="sound-item">snd_dr_tec_sd6</li>
+								<li class="sound-item">snd_dr_tec_sd7</li>
+								<li class="sound-item">snd_dr_tec_sd8</li>
+								<li class="sound-item">snd_dr_tec_sd9</li>
+							</ul>
+						</div>
+
+						<div id="d06" class="menu-folder-three">
+							<ul>
+								<li>bassdrum</li>
+								<li>clap</li>
+								<li>closed hihat</li>
+								<li>misc</li>
+								<li>open hihat</li>
+								<li>snare drum</li>
+								<li>toms</li>
+							</ul>
+						</div>
+						<div id="d060" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_vin_bd0</li>
+								<li class="sound-item">snd_dr_vin_bd1</li>
+								<li class="sound-item">snd_dr_vin_bd2</li>
+								<li class="sound-item">snd_dr_vin_bd3</li>
+								<li class="sound-item">snd_dr_vin_bd4</li>
+								<li class="sound-item">snd_dr_vin_bd5</li>
+							</ul>
+						</div>
+						<div id="d061" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_vin_cl0</li>
+							</ul>
+						</div>
+						<div id="d062" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_vin_chh0</li>
+								<li class="sound-item">snd_dr_vin_chh1</li>
+								<li class="sound-item">snd_dr_vin_chh2</li>
+							</ul>
+						</div>
+						<div id="d063" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_vin_misc0</li>
+								<li class="sound-item">snd_dr_vin_misc1</li>
+								<li class="sound-item">snd_dr_vin_misc2</li>
+							</ul>
+						</div>
+						<div id="d064" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_vin_ohh0</li>
+								<li class="sound-item">snd_dr_vin_ohh1</li>
+							</ul>
+						</div>
+						<div id="d065" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_vin_sd0</li>
+								<li class="sound-item">snd_dr_vin_sd1</li>
+								<li class="sound-item">snd_dr_vin_sd2</li>
+								<li class="sound-item">snd_dr_vin_sd3</li>
+								<li class="sound-item">snd_dr_vin_sd4</li>
+								<li class="sound-item">snd_dr_vin_sd5</li>
+							</ul>
+						</div>
+						<div id="d066" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_vin_tom0</li>
+								<li class="sound-item">snd_dr_vin_tom1</li>
+								<li class="sound-item">snd_dr_vin_tom2</li>
+								<li class="sound-item">snd_dr_vin_tom3</li>
+							</ul>
+						</div>
+
+						<div id="d07" class="menu-folder-three">
+							<ul>
+								<li>bell</li>
+								<li>bongo</li>
+								<li>percussion</li>
+							</ul>
+						</div>
+						<div id="d070" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_wor_bel0</li>
+								<li class="sound-item">snd_dr_wor_bel1</li>
+								<li class="sound-item">snd_dr_wor_bel2</li>
+								<li class="sound-item">snd_dr_wor_bel3</li>
+								<li class="sound-item">snd_dr_wor_bel4</li>
+								<li class="sound-item">snd_dr_wor_bel5</li>
+								<li class="sound-item">snd_dr_wor_bel6</li>
+								<li class="sound-item">snd_dr_wor_bel7</li>
+							</ul>
+						</div>
+						<div id="d071" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_wor_bon0</li>
+								<li class="sound-item">snd_dr_wor_bon10</li>
+								<li class="sound-item">snd_dr_wor_bon11</li>
+								<li class="sound-item">snd_dr_wor_bon12</li>
+								<li class="sound-item">snd_dr_wor_bon13</li>
+								<li class="sound-item">snd_dr_wor_bon14</li>
+								<li class="sound-item">snd_dr_wor_bon15</li>
+								<li class="sound-item">snd_dr_wor_bon16</li>
+								<li class="sound-item">snd_dr_wor_bon17</li>
+								<li class="sound-item">snd_dr_wor_bon18</li>
+								<li class="sound-item">snd_dr_wor_bon19</li>
+								<li class="sound-item">snd_dr_wor_bon1</li>
+								<li class="sound-item">snd_dr_wor_bon20</li>
+								<li class="sound-item">snd_dr_wor_bon21</li>
+								<li class="sound-item">snd_dr_wor_bon22</li>
+								<li class="sound-item">snd_dr_wor_bon23</li>
+								<li class="sound-item">snd_dr_wor_bon2</li>
+								<li class="sound-item">snd_dr_wor_bon3</li>
+								<li class="sound-item">snd_dr_wor_bon4</li>
+								<li class="sound-item">snd_dr_wor_bon5</li>
+								<li class="sound-item">snd_dr_wor_bon6</li>
+								<li class="sound-item">snd_dr_wor_bon7</li>
+								<li class="sound-item">snd_dr_wor_bon8</li>
+								<li class="sound-item">snd_dr_wor_bon9</li>
+							</ul>
+						</div>
+						<div id="d072" class="menu-folder-four">
+							<ul>
+								<li class="sound-item">snd_dr_wor_perc0</li>
+								<li class="sound-item">snd_dr_wor_perc1</li>
+								<li class="sound-item">snd_dr_wor_perc2</li>
+								<li class="sound-item">snd_dr_wor_perc3</li>
+								<li class="sound-item">snd_dr_wor_perc4</li>
+								<li class="sound-item">snd_dr_wor_perc5</li>
+								<li class="sound-item">snd_dr_wor_perc6</li>
+								<li class="sound-item">snd_dr_wor_perc7</li>
+								<li class="sound-item">snd_dr_wor_perc8</li>
+							</ul>
+						</div>
+			
+						<div id="d10" class="menu-folder-three">
+							<ul>
+								<li class="sound-item">snd_no_bas0</li>
+								<li class="sound-item">snd_no_bas10</li>
+								<li class="sound-item">snd_no_bas11</li>
+								<li class="sound-item">snd_no_bas12</li>
+								<li class="sound-item">snd_no_bas13</li>
+								<li class="sound-item">snd_no_bas14</li>
+								<li class="sound-item">snd_no_bas15</li>
+								<li class="sound-item">snd_no_bas16</li>
+								<li class="sound-item">snd_no_bas1</li>
+								<li class="sound-item">snd_no_bas2</li>
+								<li class="sound-item">snd_no_bas3</li>
+								<li class="sound-item">snd_no_bas4</li>
+								<li class="sound-item">snd_no_bas5</li>
+								<li class="sound-item">snd_no_bas6</li>
+								<li class="sound-item">snd_no_bas7</li>
+								<li class="sound-item">snd_no_bas8</li>
+								<li class="sound-item">snd_no_bas9</li>
+							</ul>
+						</div>
+						<div id="d11" class="menu-folder-three">
+							<ul>
+								<li class="sound-item">snd_no_pia0</li>
+								<li class="sound-item">snd_no_pia10</li>
+								<li class="sound-item">snd_no_pia11</li>
+								<li class="sound-item">snd_no_pia12</li>
+								<li class="sound-item">snd_no_pia1</li>
+								<li class="sound-item">snd_no_pia2</li>
+								<li class="sound-item">snd_no_pia3</li>
+								<li class="sound-item">snd_no_pia4</li>
+								<li class="sound-item">snd_no_pia5</li>
+								<li class="sound-item">snd_no_pia6</li>
+								<li class="sound-item">snd_no_pia7</li>
+								<li class="sound-item">snd_no_pia8</li>
+								<li class="sound-item">snd_no_pia9</li>
+							</ul>
+						</div>
+						<div id="d12" class="menu-folder-three">
+							<ul>
+								<li class="sound-item">snd_no_syn0</li>
+								<li class="sound-item">snd_no_syn10</li>
+								<li class="sound-item">snd_no_syn11</li>
+								<li class="sound-item">snd_no_syn12</li>
+								<li class="sound-item">snd_no_syn13</li>
+								<li class="sound-item">snd_no_syn14</li>
+								<li class="sound-item">snd_no_syn15</li>
+								<li class="sound-item">snd_no_syn16</li>
+								<li class="sound-item">snd_no_syn17</li>
+								<li class="sound-item">snd_no_syn18</li>
+								<li class="sound-item">snd_no_syn19</li>
+								<li class="sound-item">snd_no_syn1</li>
+								<li class="sound-item">snd_no_syn20</li>
+								<li class="sound-item">snd_no_syn21</li>
+								<li class="sound-item">snd_no_syn22</li>
+								<li class="sound-item">snd_no_syn23</li>
+								<li class="sound-item">snd_no_syn24</li>
+								<li class="sound-item">snd_no_syn25</li>
+								<li class="sound-item">snd_no_syn26</li>
+								<li class="sound-item">snd_no_syn27</li>
+								<li class="sound-item">snd_no_syn28</li>
+								<li class="sound-item">snd_no_syn29</li>
+								<li class="sound-item">snd_no_syn2</li>
+								<li class="sound-item">snd_no_syn30</li>
+								<li class="sound-item">snd_no_syn31</li>
+								<li class="sound-item">snd_no_syn32</li>
+								<li class="sound-item">snd_no_syn33</li>
+								<li class="sound-item">snd_no_syn34</li>
+								<li class="sound-item">snd_no_syn35</li>
+								<li class="sound-item">snd_no_syn36</li>
+								<li class="sound-item">snd_no_syn37</li>
+								<li class="sound-item">snd_no_syn38</li>
+								<li class="sound-item">snd_no_syn39</li>
+								<li class="sound-item">snd_no_syn3</li>
+								<li class="sound-item">snd_no_syn40</li>
+								<li class="sound-item">snd_no_syn41</li>
+								<li class="sound-item">snd_no_syn42</li>
+								<li class="sound-item">snd_no_syn43</li>
+								<li class="sound-item">snd_no_syn44</li>
+								<li class="sound-item">snd_no_syn45</li>
+								<li class="sound-item">snd_no_syn46</li>
+								<li class="sound-item">snd_no_syn47</li>
+								<li class="sound-item">snd_no_syn48</li>
+								<li class="sound-item">snd_no_syn49</li>
+								<li class="sound-item">snd_no_syn4</li>
+								<li class="sound-item">snd_no_syn50</li>
+								<li class="sound-item">snd_no_syn51</li>
+								<li class="sound-item">snd_no_syn52</li>
+								<li class="sound-item">snd_no_syn53</li>
+								<li class="sound-item">snd_no_syn54</li>
+								<li class="sound-item">snd_no_syn55</li>
+								<li class="sound-item">snd_no_syn56</li>
+								<li class="sound-item">snd_no_syn57</li>
+								<li class="sound-item">snd_no_syn58</li>
+								<li class="sound-item">snd_no_syn59</li>
+								<li class="sound-item">snd_no_syn5</li>
+								<li class="sound-item">snd_no_syn60</li>
+								<li class="sound-item">snd_no_syn61</li>
+								<li class="sound-item">snd_no_syn62</li>
+								<li class="sound-item">snd_no_syn63</li>
+								<li class="sound-item">snd_no_syn64</li>
+								<li class="sound-item">snd_no_syn65</li>
+								<li class="sound-item">snd_no_syn66</li>
+								<li class="sound-item">snd_no_syn67</li>
+								<li class="sound-item">snd_no_syn68</li>
+								<li class="sound-item">snd_no_syn69</li>
+								<li class="sound-item">snd_no_syn6</li>
+								<li class="sound-item">snd_no_syn70</li>
+								<li class="sound-item">snd_no_syn7</li>
+								<li class="sound-item">snd_no_syn8</li>
+								<li class="sound-item">snd_no_syn9</li>
+							</ul>
+						</div>
+						<div id="d13" class="menu-folder-three">
+							<ul>
+								<li class="sound-item">snd_no_vox0</li>
+								<li class="sound-item">snd_no_vox10</li>
+								<li class="sound-item">snd_no_vox11</li>
+								<li class="sound-item">snd_no_vox12</li>
+								<li class="sound-item">snd_no_vox13</li>
+								<li class="sound-item">snd_no_vox14</li>
+								<li class="sound-item">snd_no_vox15</li>
+								<li class="sound-item">snd_no_vox16</li>
+								<li class="sound-item">snd_no_vox17</li>
+								<li class="sound-item">snd_no_vox18</li>
+								<li class="sound-item">snd_no_vox1</li>
+								<li class="sound-item">snd_no_vox2</li>
+								<li class="sound-item">snd_no_vox3</li>
+								<li class="sound-item">snd_no_vox4</li>
+								<li class="sound-item">snd_no_vox5</li>
+								<li class="sound-item">snd_no_vox6</li>
+								<li class="sound-item">snd_no_vox7</li>
+								<li class="sound-item">snd_no_vox8</li>
+								<li class="sound-item">snd_no_vox9</li>
+							</ul>
+						</div>
+					</div>					
+				</div>
 				<div class="top-bar">
 					<div class="file-btn">new</div>
 					<div class="file-btn">load</div>
@@ -18,7 +840,10 @@
 				</div>
 				<div class="tech-sect">
 					<div class="left-sect">
-						<div class="spare">spare section</div>
+						<div class="spare">
+							<div class="led-two"></div>
+							spare section
+						</div>
 						<div class="proj-disp">proj name</div>
 						<div class="bpm-sect">
 							<div class="bpm-disp">110bpm</div>
@@ -48,6 +873,11 @@
 							<div class="led"></div>
 							<div class="led"></div>
 						</div>
+						<div class="rows">
+						</div>
+						<div class="add-btn">+</div>
+						<div class="ran-btn">randomise</div>
+						<div class="sran-btn">randomise+</div>
 					</div>	
 				</div>
 
@@ -56,6 +886,7 @@
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.15/howler.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="./assets/js/globals.js"></script>		
 	<script type="text/javascript" src="./assets/js/jscript.js"></script>		
 </body>
 </html>
