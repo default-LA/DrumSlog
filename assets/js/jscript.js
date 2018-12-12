@@ -3,20 +3,20 @@ var store =
 	{
 		"sound": "snd_dr_808_bd1",
 	    "pattern": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-	    "volume": 100
+	    "volume": 1
 	},{
 		"sound": "snd_dr_808_sd1",
 	    "pattern": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false], //booleans
-	    "volume": 100 
+	    "volume": 1 
 		
 	},{
 		"sound": "snd_dr_808_chh0",
 	    "pattern": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-	    "volume": 100 
+	    "volume": 1 
 	},{
 		"sound": "snd_dr_808_ohh0",
 	    "pattern": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-	    "volume": 100 
+	    "volume": 1
 	}
 ]; //save file with drum patterns and which sound file to use
 
@@ -25,6 +25,10 @@ var rowNumber = 0;
 var s = 0
 var playing = false;
 var storeSound = "";
+var bpm = 60;    
+var div = 16;             
+var tickTimeout = null;
+var preview = null;
 
 function drawRow(){
 	var $newRow = $(`<div class="row" id="row` + rowNumber + `">
@@ -86,18 +90,24 @@ $(".right-sect").on("click", ".switch", function() {  //.right-sect is static an
 		temp[x].pattern[y] = true;
 	};
 }); //switch click on/off
+
 $(".play-btn").click(function(){
-	if (playing === false){
-		playing = true;
-		console.log("playing");
-		startLoop()
-	} else {return;}
+		if (playing !== true){
+			startLoop()
+		} else {return;}
 });
+
 $(".stop-btn").click(function(){
-	playing = false;
+	stop();
 	console.log("stopped");
 }); //play/stop button function
 
+function loadSound(){
+	temp.map(function(obj){
+	  obj.audio = new Howl({src: ["./assets/sound/" + obj.sound + ".ogg"], volume: 1});
+	});
+} //map sounds from sound folder depending on temp.sound name
+loadSound();
 
 //==== FOLDER FUNCTIONAITY =====
 
@@ -143,7 +153,8 @@ $(".menu-folder-three").on("click", "li", function() {
 $(".sound-item").click(function() {  
 	$(".menu-folder-four").find("li").removeClass("menu-toggle");	
 	selectedSound = $(this).index(".sound-item");
-	soundset.play(soundNames[selectedSound]);
+	preview = new Audio("./assets/sound/" + soundNames[selectedSound] + ".ogg");
+	preview.play();
 	console.log(selectedSound);
 	$(this).addClass("menu-toggle");
 
@@ -154,6 +165,7 @@ $(".okay-btn").click(function(){
 		console.log(soundNames[selectedSound]);
 		temp[selectRow].sound = soundNames[selectedSound];
 		$(".sample-disp").eq(selectRow).text(soundNames[selectedSound]);
+		loadSound();
 		closeMenu();
 	}
 });
@@ -217,48 +229,13 @@ function srandomise(){
 		temp[i].sound = soundNames[rand];
 		$(".sample-disp").eq(i).text(soundNames[rand]);
 	}
+	loadSound();
 }
 
-// function drawRows(){
-// 	var $switchOn = $('<div id="switch' + j + '" class="switch active-switch">');
-// 	var $switchOff = $('<div id="switch' + j + '" class="switch unactive-switch">');
-// 		if (temp[i].pattern[j] === true){
-//     		$("#step-btn" + i).append($switchOn);
-//     		} else {
-//     		$("#step-btn" + i).append($switchOff);
-// 		};
-// }
-
-// var soundOne = soundset.play(temp[0].sound);
-
-// var s = 0;
-// function startLoop(){   
-//     if (playing === true){
-    
-//     setTimeout(function(){ 
-//         for(var i in temp){
-//         console.log(temp[i].pattern[s]);
-//         console.log(s);
-
-
-//             if(temp[i].pattern.hasOwnProperty(s)){
-//                 if(temp[i].pattern[s]){
-//                     soundset.play(temp[i].sound);
-//                 }
-//             }else{
-//                 s = 0;
-//             }
-//         }
-//         s++;
-//         startLoop();
-//     }, 110);
-// 	}
-// };
-
-function startLoop(){	
-	if (playing === true){	
-		setTimeout(function(){
-			$(".led:eq(" + s + ")").addClass("red-led-lit");
+function startLoop(){
+	playing = true;
+	temp.forEach(function(obj) {
+		$(".led:eq(" + s + ")").addClass("red-led-lit");
 			setTimeout(function () { 
 			    $(".led:eq(" + s + ")").removeClass("red-led-lit");
 			}, 10);
@@ -274,53 +251,17 @@ function startLoop(){
 				    $(".led-two").removeClass("two-led-lit");
 					}, 300);
 				}
-			}
-			
-			if (typeof temp[0] !== "undefined") {
-				if (temp[0].pattern[s] === true){
-					soundset.play(temp[0].sound);
-				}
-			}
-			if (typeof temp[1] !== "undefined") {
-				if (temp[1].pattern[s] === true){
-					soundset.play(temp[1].sound);				
-				}
-			}
-			if (typeof temp[2] !== "undefined") {
-				if (temp[2].pattern[s] === true){
-					soundset.play(temp[2].sound);				
-				}
-			}
-			if (typeof temp[3] !== "undefined") {
-				if (temp[3].pattern[s] === true){
-					soundset.play(temp[3].sound);				
-				}
-			}
-			if (typeof temp[4] !== "undefined") {
-				if (temp[4].pattern[s] === true){
-					soundset.play(temp[4].sound);				
-				}
-			}
-			if (typeof temp[5] !== "undefined") {
-				if (temp[5].pattern[s] === true){
-					soundset.play(temp[5].sound);				
-				}
-			}
-			if (typeof temp[6] !== "undefined") {
-				if (temp[6].pattern[s] === true){
-					soundset.play(temp[6].sound);				
-				}
-			}		
+			}   
+    if (obj.pattern[s]) {
+    	obj.audio.stop();
+    	obj.audio.play();   
+    }
+	});
+	s = ++s % div;                      
+	tickTimeout = setTimeout(startLoop, 1000 * 7 / bpm);  
+}
 
-			s++;
-			if (s < temp[0].pattern.length){
-				startLoop();
-			} else {
-				s = 0;
-				startLoop();
-			}
-
-		}, 110) //bpm variable
-	} else {return;}
-} //startLoop() function
-
+function stop() {
+	playing = false;
+	clearTimeout(tickTimeout);
+}
