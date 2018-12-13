@@ -8,7 +8,6 @@ var store =
 		"sound": "snd_dr_808_sd1",
 	    "pattern": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false], //booleans
 	    "volume": 1 
-		
 	},{
 		"sound": "snd_dr_808_chh0",
 	    "pattern": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -26,7 +25,7 @@ var tempNumber = 0;
 var s = 0
 var playing = false;
 var storeSound = "";
-var bpm = 60;    
+var bpm = 130;    
 var div = 16;             
 var tickTimeout = null;
 var preview = null;
@@ -40,6 +39,9 @@ var $visFolderFour = $("#d" + 0 + 0 + 0);
 var selectedSound = "none";
 var selectRow = "none";
 var glitchPlay = false;
+var muted = [false, false, false, false, false, false, false, false, false, false];
+
+$(".bpm-disp").text(bpm)
 
 
 function drawRow(){
@@ -62,7 +64,6 @@ function drawRow(){
 								<div class="inst-blink"></div>
 								<div class="step-btn" id="step-btn` + rowNumber + `">
 								<div class="add-remove">-</div>
-								
 								</div>
 							</div>`);
 	$(".rows").append($newRow);
@@ -97,15 +98,21 @@ for (var i = 0; i < store.length; i++) {
 }; //initial draw from savefile
 
 $(".right-sect").on("click", ".switch", function() {  //.right-sect is static ancestor. 
-	var x = $(this).parents().eq(1).index();	      //.on allows dynamically added html to be clicked.
-	var y = $(this).index();
-	y = y - 1;
-	$(this).toggleClass("active-switch unactive-switch");
-	if (temp[x].pattern[y] === true){
-		temp[x].pattern[y] = false;
-	} else {
-		temp[x].pattern[y] = true;
-	};
+		var x = $(this).parents().eq(1).index();	  //.on allows dynamically added html to be clicked.
+		var y = $(this).index();
+		if (temp[x].sound == "No Sound Loaded"){
+			$('.sample-disp').eq(x).addClass("alert").stop().delay(500).queue(function(){
+ 				$(this).removeClass("alert");
+			});
+			return;
+		}
+		y = y - 1;
+		$(this).toggleClass("active-switch unactive-switch");
+		if (temp[x].pattern[y] === true){
+			temp[x].pattern[y] = false;
+		} else {
+			temp[x].pattern[y] = true;
+		};
 }); //switch click on/off
 
 $(".right-sect").on("click", ".mute-led", function(){
@@ -114,7 +121,13 @@ $(".right-sect").on("click", ".mute-led", function(){
 	$(this).toggleClass("mute-lit");
 	if (temp[m].audio._volume != 0){
 		temp[m].audio._volume = 0;
-	} else { temp[m].audio._volume = 1; }
+		muted[m] = true
+
+	} else { 
+		temp[m].audio._volume = 1;
+		muted[m] = false;
+	}
+	
 });
 
 $(".right-sect").on("click", ".solo-led", function(){
@@ -124,12 +137,22 @@ $(".right-sect").on("click", ".solo-led", function(){
 	for (var i = 0; i < temp.length; i++){
 		temp[i].audio._volume = 0;
 		$(".mute-led").addClass("mute-lit");
+		muted[i] = true;
 	}
-	temp[n].audio._volume = 0.99;
+	temp[n].audio._volume = 1;
+	muted[n] = false;
 	$(".mute-led").eq(n).removeClass("mute-lit");
-
-
 });
+
+function muteState(){
+	for (var i = 0; i < temp.length; i++){
+		if (temp[i].audio._volume < 0.01){
+			muted.push(true);
+		} else {
+			muted.push(false);
+		}
+	}
+}
 
 
 $(".play-btn").click(function(){
@@ -143,10 +166,44 @@ $(".stop-btn").click(function(){
 	console.log("stopped");
 }); //play/stop button function
 
+
+$(".bpm-up").click(function(){	
+	if (bpm >= 220){
+		return;
+	} else {
+		bpm++;
+		$(".bpm-disp").text(bpm);
+		$(".bpm-down").removeClass("btn-grey");
+		if (bpm >= 220){
+			$(this).addClass("btn-grey");
+		}
+
+	}
+});
+$(".bpm-down").click(function(){	
+	if (bpm <= 30){
+		return;
+	} else {
+		bpm--;
+		$(".bpm-up").removeClass("btn-grey");
+		$(".bpm-disp").text(bpm);
+		if (bpm <= 30){
+			$(this).addClass("btn-grey");
+		}		
+	}
+});
+
 function loadSound(){
 	temp.map(function(obj){
 	  obj.audio = new Howl({src: ["./assets/sound/" + obj.sound + ".ogg"], volume: 1});
 	});
+	for (var i = 0; i < temp.length; i++){
+		if (muted[i] != false){
+			temp[i].audio._volume = 0;
+		} else {
+			temp[i].audio._volume = 1;
+		}
+	}
 } //map sounds from sound folder depending on temp.sound name
 loadSound();
 
@@ -214,7 +271,13 @@ $(".right-sect").on("click", ".sample-disp", function(){
 });
 
 $(".right-sect").on("click", ".add-btn", function(){
-	addNew();
+	if (tempNumber < 10){
+		addNew();
+		if (tempNumber >= 10){
+			$(".add-btn").addClass("btn-grey");
+		}
+	} else {return;}
+	
 });
 
 $(".cle-btn").click(function(){
@@ -236,10 +299,9 @@ $(".glitch-btn").click(function(){
 $(".right-sect").on("click", ".volume-slide", function() {
 	var volNum = null;
 	var slidey = $(this).parents().eq(2).index(); //eq(2) tells how many layers back static ref is
-	var slider = $("#slide" + slidey).val();
+	var slider = $(".slider").eq(slidey).val();
 	volNum = parseInt(slider) / 100;
-	temp[slidey].volume = volNum;
-	console.log("volume coming soon...  " + slidey, volNum);
+	temp[slidey].audio._volume = volNum;
 });
 
 function closeMenu(){
@@ -288,8 +350,10 @@ $(".right-sect").on("click", ".add-remove", function(){
 	$(this).parents().eq(1).fadeOut(200, "swing", function(){
 		$(this).remove();
 		temp.splice(rowClicked, 1);
-		console.log(rowClicked);
 		tempNumber--;
+		if (tempNumber <= 9){
+			$(".add-btn").removeClass("btn-grey");
+		}
 	});	
 });
 
@@ -336,12 +400,12 @@ function startLoop(){
 		   	});
 	if (glitchPlay !== true) { 
 		s = ++s % div; 
-		tickTimeout = setTimeout(startLoop, 1000 * 5 / bpm); 
 	} else {
 		s = Math.round(Math.random() * 15);
-		var bpmRand = Math.round(Math.random() * (10 - 1));
-		tickTimeout = setTimeout(startLoop, 1000 * bpmRand / bpm); 
+		// var bpmRand = Math.round(Math.random() * (10 - 1));
+		// tickTimeout = setTimeout(startLoop, 1000 * bpmRand / bpm); 
 	}
+	tickTimeout = setTimeout(startLoop, 15000 / bpm); 
 }
 
 function stop() {

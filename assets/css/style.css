@@ -289,6 +289,55 @@ body {
 	text-transform: uppercase;
 }
 
+.alert {
+    -webkit-animation-name: alert-red;
+    -webkit-animation-duration: 110ms;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-name: alert-red;
+    -moz-animation-duration: 110ms;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+
+    animation-name: alert-red;
+    animation-duration: 110ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@-moz-keyframes alert-red {  
+    0% { 
+    	color: red;
+    	text-shadow: 0 0 2px 2px red; 
+    }
+    100% {
+    	color: inherit; 
+    }
+}
+
+@-webkit-keyframes alert-red {  
+    0% { 
+    	color: red;
+    	text-shadow: 0 0 2px 2px red; 
+
+    }
+    100% {
+    	color: inherit; 
+
+    }
+}
+
+@keyframes alert-red {  
+    0% { 
+    	color: red;
+    	text-shadow: 0 0 2px 2px red; 
+    }
+    100% {
+    	color: inherit; 
+    }
+}
+
 .inst-blink {
 	float: left;
 	width: 1px;
@@ -449,7 +498,7 @@ body {
 	width: 820px;
 	position: absolute;
 	top: 25px;
-	left: 50px;
+	left: 95px;
 	z-index: 999;
 	background: rgb(0, 0, 0); /*fallback */
 	background: rgba(0, 0, 0, 0.8); 
