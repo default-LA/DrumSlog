@@ -20,8 +20,9 @@ var store =
 	}
 ]; //save file with drum patterns and which sound file to use
 
-var temp = [];
+// var temp = [];
 var rowNumber = 0;
+var tempNumber = 0;
 var s = 0
 var playing = false;
 var storeSound = "";
@@ -29,44 +30,58 @@ var bpm = 60;
 var div = 16;             
 var tickTimeout = null;
 var preview = null;
+var temp = store;
+var folderOne = 0;
+var folderTwo = 0;
+var folderThree = 0;
+var $visFolderTwo = $("#d" + 0);
+var $visFolderThree = $("#d" + 0 + 0);
+var $visFolderFour = $("#d" + 0 + 0 + 0);
+var selectedSound = "none";
+var selectRow = "none";
+var glitchPlay = false;
+
 
 function drawRow(){
 	var $newRow = $(`<div class="row" id="row` + rowNumber + `">
 								<div class="left-control">
+								<div class="sample-disp">` + temp[tempNumber].sound + `</div>
 									<div class="top-controls">
-										<div class="top-sect">V</div>						
+										<div class="volume-slide">
+										<input type="range" min="1" max="100" value="100" step="1" id="slide` + rowNumber + `" class="slider" id="volume"></div>					
 										<div class="top-sect">
-											<div class="mute-led">0</div>
+											<div class="mute-led"></div>
 											<div class="led-text">mute</div>
 										</div>
 										<div class="top-sect">
-											<div class="solo-led">0</div>
+											<div class="solo-led"></div>
 											<div class="led-text">solo</div>
 										</div>
 									</div>
-									<div class="sample-disp">bd03.ogg</div>
 								</div>
+								<div class="inst-blink"></div>
 								<div class="step-btn" id="step-btn` + rowNumber + `">
+								<div class="add-remove">-</div>
 								
 								</div>
-								<div class="add-remove"></div>
 							</div>`);
 	$(".rows").append($newRow);
 } //drawRow() function
 function addNew(){
-	var addRow = {"sound": "snd_dr_808_bd1", "pattern": [false, false, false, false, false, false, false, false, 
-					false, false, false, false, false, false, false, false, ], "volume": 100};
+	var addRow = {"sound": "No Sound Loaded", "pattern": [false, false, false, false, false, false, false, false, 
+					false, false, false, false, false, false, false, false, ], "volume": 1};
 	temp.push(addRow);
 	drawRow();
 	for (var j = 0; j < 16; j++){
-			var $switchOff = $('<div id="switch' + j + '" class="switch unactive-switch">');
-			$("#step-btn" + rowNumber).append($switchOff);
+		var $switchOff = $('<div id="switch' + j + '" class="switch unactive-switch">');
+		$("#step-btn" + rowNumber).append($switchOff);
 	};
 	rowNumber++;
+	tempNumber++;
 }; //addNew() function
+
 for (var i = 0; i < store.length; i++) {	
 	drawRow();
-	temp[i] = store[i];
 	//push sound variable into temp array
 		for (var j = 0; j < temp[i].pattern.length; j++){
 			var $switchOn = $('<div id="switch' + j + '" class="switch active-switch">');
@@ -78,11 +93,13 @@ for (var i = 0; i < store.length; i++) {
 			};
 		};
 	rowNumber++;
+	tempNumber++;
 }; //initial draw from savefile
+
 $(".right-sect").on("click", ".switch", function() {  //.right-sect is static ancestor. 
 	var x = $(this).parents().eq(1).index();	      //.on allows dynamically added html to be clicked.
 	var y = $(this).index();
-	// console.log("switch" + $(this).index() + " in index " + $(this).parents().eq(1).index() + " clicked!");
+	y = y - 1;
 	$(this).toggleClass("active-switch unactive-switch");
 	if (temp[x].pattern[y] === true){
 		temp[x].pattern[y] = false;
@@ -90,6 +107,30 @@ $(".right-sect").on("click", ".switch", function() {  //.right-sect is static an
 		temp[x].pattern[y] = true;
 	};
 }); //switch click on/off
+
+$(".right-sect").on("click", ".mute-led", function(){
+	var m = $(this).parents().eq(3).index();
+	$(".solo-led").removeClass("solo-lit");
+	$(this).toggleClass("mute-lit");
+	if (temp[m].audio._volume != 0){
+		temp[m].audio._volume = 0;
+	} else { temp[m].audio._volume = 1; }
+});
+
+$(".right-sect").on("click", ".solo-led", function(){
+	$(".solo-led").removeClass("solo-lit");
+	$(this).toggleClass("solo-lit");
+	var n = $(this).parents().eq(3).index();
+	for (var i = 0; i < temp.length; i++){
+		temp[i].audio._volume = 0;
+		$(".mute-led").addClass("mute-lit");
+	}
+	temp[n].audio._volume = 0.99;
+	$(".mute-led").eq(n).removeClass("mute-lit");
+
+
+});
+
 
 $(".play-btn").click(function(){
 		if (playing !== true){
@@ -111,16 +152,6 @@ loadSound();
 
 //==== FOLDER FUNCTIONAITY =====
 
-var folderOne = 0;
-var folderTwo = 0;
-var folderThree = 0;
-var $visFolderTwo = $("#d" + 0);
-var $visFolderThree = $("#d" + 0 + 0);
-var $visFolderFour = $("#d" + 0 + 0 + 0);
-var selectedSound = "none";
-var selectRow = "none";
-
-
 $(".menu-folder-one").on("click", "li", function() { 
 	$(".menu-folder-one").find("li").removeClass("menu-toggle");
 	folderOne = $(this).index();	
@@ -131,6 +162,7 @@ $(".menu-folder-one").on("click", "li", function() {
 	$visFolderTwo.show();	
 	$(this).addClass("menu-toggle");
 });
+
 $(".menu-folder-two").on("click", "li", function() { 
 	$(".menu-folder-two").find("li").removeClass("menu-toggle");
 	folderTwo = $(this).index();		
@@ -141,6 +173,7 @@ $(".menu-folder-two").on("click", "li", function() {
 	$(this).addClass("menu-toggle");
 
 });
+
 $(".menu-folder-three").on("click", "li", function() { 
 	$(".menu-folder-three").find("li").removeClass("menu-toggle");
 	folderThree = $(this).index();		
@@ -150,6 +183,7 @@ $(".menu-folder-three").on("click", "li", function() {
 	$(this).addClass("menu-toggle");
 
 });
+
 $(".sound-item").click(function() {  
 	$(".menu-folder-four").find("li").removeClass("menu-toggle");	
 	selectedSound = $(this).index(".sound-item");
@@ -170,20 +204,21 @@ $(".okay-btn").click(function(){
 	}
 });
 
-
 $(".canc-btn").click(function(){
 	closeMenu();
 });
 
-
 $(".right-sect").on("click", ".sample-disp", function(){
 	selectRow = $(this).parents().eq(1).index();
-	$(".sound-select-popup").fadeIn(100, "swing");	
-
+	$(".sound-select-popup").fadeIn(100, "swing");
 });
 
 $(".right-sect").on("click", ".add-btn", function(){
 	addNew();
+});
+
+$(".cle-btn").click(function(){
+	clearAll();
 });
 
 $(".ran-btn").click(function(){
@@ -193,6 +228,18 @@ $(".ran-btn").click(function(){
 $(".sran-btn").click(function(){
 	srandomise();
 	randomise();
+});
+$(".glitch-btn").click(function(){
+	glitch();
+})
+
+$(".right-sect").on("click", ".volume-slide", function() {
+	var volNum = null;
+	var slidey = $(this).parents().eq(2).index(); //eq(2) tells how many layers back static ref is
+	var slider = $("#slide" + slidey).val();
+	volNum = parseInt(slider) / 100;
+	temp[slidey].volume = volNum;
+	console.log("volume coming soon...  " + slidey, volNum);
 });
 
 function closeMenu(){
@@ -215,12 +262,42 @@ function randomise(){
 			var $switchOn = $('<div id="switch' + j + '" class="switch active-switch">');
 			var $switchOff = $('<div id="switch' + j + '" class="switch unactive-switch">');
 			if (temp[i].pattern[j] === true){
-    			$("#step-btn" + i).append($switchOn);
+    			$(".step-btn:eq(" + i + ")").append($switchOn);
     		} else {
-    			$("#step-btn" + i).append($switchOff);
+    			$(".step-btn:eq(" + i + ")").append($switchOff);
 			};
 		}
 	}
+}
+
+function clearAll(){
+	$(".switch").remove();
+	for (var i = 0; i < temp.length; i++){
+		for (var j = 0; j < temp[i].pattern.length; j++){
+			temp[i].pattern[j] = false;
+			var $switchOff = $('<div id="switch' + j + '" class="switch unactive-switch">');
+			if (temp[i].pattern[j] === false){
+    			$(".step-btn:eq(" + i + ")").append($switchOff);
+    		}
+   		}
+	}
+}
+
+$(".right-sect").on("click", ".add-remove", function(){
+	var rowClicked = $(this).parents().eq(1).index();
+	$(this).parents().eq(1).fadeOut(200, "swing", function(){
+		$(this).remove();
+		temp.splice(rowClicked, 1);
+		console.log(rowClicked);
+		tempNumber--;
+	});	
+});
+
+
+function glitch(){	
+	if (glitchPlay !== true){
+		glitchPlay = true;
+	} else {glitchPlay = false}	
 }
 
 function srandomise(){
@@ -252,16 +329,27 @@ function startLoop(){
 					}, 300);
 				}
 			}   
-    if (obj.pattern[s]) {
-    	obj.audio.stop();
-    	obj.audio.play();   
-    }
-	});
-	s = ++s % div;                      
-	tickTimeout = setTimeout(startLoop, 1000 * 7 / bpm);  
+		    if (obj.pattern[s]) {
+		    	obj.audio.stop();
+		    	obj.audio.play();
+		    }
+		   	});
+	if (glitchPlay !== true) { 
+		s = ++s % div; 
+		tickTimeout = setTimeout(startLoop, 1000 * 5 / bpm); 
+	} else {
+		s = Math.round(Math.random() * 15);
+		var bpmRand = Math.round(Math.random() * (10 - 1));
+		tickTimeout = setTimeout(startLoop, 1000 * bpmRand / bpm); 
+	}
 }
 
 function stop() {
 	playing = false;
 	clearTimeout(tickTimeout);
 }
+
+   //  	$(".inst-blink").addClass("inst-blink-lit");
+   //  	setTimeout(function () { 
+			//     $(".inst-blink").removeClass("inst-blink-lit");
+			// }, 50);

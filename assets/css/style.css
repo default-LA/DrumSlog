@@ -1,3 +1,11 @@
+/*
+
+    font-family: 'VT323', monospace;
+
+    font-family: 'Press Start 2P', cursive;
+
+*/
+
 body {
 	text-align: center;
 	cursor: default;
@@ -11,7 +19,7 @@ body {
 }
 
 .drum-machine {
-	width: 920px;
+	width: 1000px;
 	height: 550px;
 	max-height: 600px;
 	margin: 0 auto;
@@ -45,7 +53,7 @@ body {
 }
 .tech-sect {
 	height: 500px;
-	width: 910px;
+	width: 990px;
 	background-color: #232322;
 	padding: 5px;
 
@@ -85,16 +93,16 @@ body {
 
 .bpm-disp {
 	background-color: #FFFCFF;	
-	width: 50%;
-	height: 100%;
+	width: 100%;
+	height: 50%;
 	float: left;
 
 	
 }
-.bpm-knob {
+.bpm-btn {
 	background-color: #FFFFCF;
 	width: 50%;
-	height: 100%;
+	height: 50%;
 	float: left;
 
 
@@ -131,14 +139,15 @@ body {
 
 
 .led-step {
-	max-width: 630px;
+	width: 815px;
 	height: 30px;
 	background-color: #1c1c1c;
 	display: flex;
-	justify-content: space-around;
+	justify-content: flex-start;
+
 	align-items: center;
-	margin-left: 100px;
-	padding-left: 5px;
+	margin-left: 0px;
+	padding-left: 0px;
 	padding-right: 5px;
 	margin-bottom: 5px;
 
@@ -151,11 +160,12 @@ body {
 	background-color: #490505;
 	border: 1px solid dark-gray;
 	border-radius: 50%;
+	margin-right: 19px;
 
 }
 .rows {
 	background-color: #282828;
-	width: 750px;
+	width: 840px;
 	height: 420px;
 	float: left;
 	overflow-x: hidden;
@@ -164,58 +174,156 @@ body {
 
 .row {
 	margin-top: 5px;
-	width: 740px;
+	width: 820px;
 	height: 60px;
 	background-color: #1c1c1c;
 	
 }
 .left-control {
-	background-color: #CCCFCC;
-	width: 100px;
+	background-color: #1b1b1b;
+	width: 150px;
 	height: 100%;
 	float: left;
-	margin-right: 5px; 
+	margin-right: 0; 
+	color: white;
 
 }
 .top-controls {
 	width: 100%;
 	height: 50%;
-	background-color: #DCDCDC;
+	background-color: #1f1f1f;
 
 }
 .top-sect {
 	width: 33px;
-	height: 100%;
+	height: 30px;
 	float: left;
 
 }
 
-.mute-led {
-	width: 100%;
-	height: 60%;
+.volume-slide {
+	height: 30px;
+	width: 80px;
+	float: left;
 
 }
-.solo-led {
-	width: 100%;
-	height: 60%;
+
+.slider {
+  -webkit-appearance: none;  
+  appearance: none;
+  width: 85%; 
+  height: 26px; 
+  background: #1f1f1f; 
+  outline: none; 
+  opacity: 0.7; 
+  -webkit-transition: .2s; 
+  transition: opacity .2s;
 }
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 5px; 
+  height: 20px; 
+  background: #4CAF50; 
+  cursor: pointer; 
+}
+.slider::-moz-range-thumb {
+  width: 5px; 
+  height: 20px; 
+  background: #4CAF50;
+  cursor: pointer; 
+}
+
+.mute-led {
+	width: 40%;
+	height: 40%;
+	border-radius: 50%;
+	background-color: #490505;
+	margin-bottom: 1px;
+	margin-left: 11px;
+	margin-top: 3px;
+
+}
+
+.mute-lit {
+	background-color: #ff1e1e;
+	box-shadow: 0 0 2px 2px #ff1e1e;
+}
+
+
+
+
+.solo-led {
+
+	width: 40%;
+	height: 40%;
+	border-radius: 50%;
+	background-color: #444311;
+	margin-bottom: 1px;
+	margin-left: 11px;
+	margin-top: 3px;
+}
+.solo-lit {
+	background-color: #fffb42;
+	box-shadow: 0 0 2px 2px  #fffb42;
+}
+
+
 .led-text {
 	font-size: 10px;
-	width: 100%
+	width: 100%;
 	height: 40%;
+	margin-left: 1px;
 
 }
 .sample-disp {
 	width: 100%;
 	height: 50%;
+	line-height: 30px;
+	font-size: 0.75em;
+	text-align: center;
+	text-transform: uppercase;
 }
+
+.inst-blink {
+	float: left;
+	width: 1px;
+	height: 100%;
+	background-color: #282828;
+}
+
+.inst-blink-lit {
+	background-color: #ffffff;
+	box-shadow: 0 0 2px 2px #ffffff;
+	animation: instOut 2ms;
+	-o-animation: instOut 2ms;
+	-moz-animation: instOut 2ms;
+	-webkit-animation: instOut 2ms;
+	animation-fill-mode: forwards;
+	
+}
+
+@keyframes instOut {
+	from {}
+	to {
+		
+		background-color: #282828;
+		box-shadow: 0 0 0 0 #000000;
+
+	} 
+}
+
 
 .step-btn {
 	height: 100%;
-	width: 630px;
+	width: 640px;
 	float: left;
 	display: flex;
-	justify-content: space-around;
+	justify-content: flex-start;
 	align-items: center;
 
 }
@@ -224,6 +332,7 @@ body {
 	width: 30px;
 	border: 1px solid #043d0a;
 	float: left;
+	margin-right: 7px;
 }
 
 .active-switch {	
@@ -253,7 +362,20 @@ body {
 .unactive-switch {
 	background-color: #043d0a;	
 }
+
 .add-remove {
+	height: 14px;
+	width: 14px;
+	text-align: center;
+	line-height: 10px;
+	background-color: red;
+	color: white;
+	position: relative;
+	top: 0;
+	left: 640px;
+	border-radius: 50%;
+	text-size: 0.5em;
+	font-weight: bold;
 
 }
 
@@ -281,8 +403,9 @@ body {
 
 .led-two {
 	/*float: left;*/
-	width: 115px;
-	height: 20px;
+	margin-right: 20px;
+	width: 150px;
+	height: 100%;
 	background-color: #010121;
 	border: 1px solid dark-gray;
 	/*border-radius: 50%;*/
@@ -462,7 +585,7 @@ li:hover{
 .add-btn {
 	position: absolute;
 	bottom: 15px;
-	left: 200px;
+	left: 225px;
 	height: 30px;
 	width: 30px;
 	background-color: blue;
@@ -470,13 +593,22 @@ li:hover{
 	text-align: center;
 	line-height: 30px;
 }
+
+.cle-btn {
+	background-color: green;
+	height: 30px;
+	width: 100px;
+	position: absolute;
+	bottom: 14px;
+	right: 400px;
+}
 .ran-btn {
 	background-color: red;
 	height: 30px;
 	width: 100px;
 	position: absolute;
 	bottom: 14px;
-	right: 125px;
+	right: 290px;
 }
 .sran-btn {
 	background-color: yellow;
@@ -484,8 +616,36 @@ li:hover{
 	width: 100px;
 	position: absolute;
 	bottom: 14px;
-	right: 15px;
+	right: 180px;
 }
+
+.glitch-container {
+	width: 155px;
+	height: 28px;
+	position: absolute;
+	bottom: 14px;
+	right: 15px;
+	background-color: #000000;
+	border: 1px solid purple;
+}
+
+.glitch-btn {
+	width: 75px;
+	height: 28px;
+	background-color: blue;
+	line-height: 30px;
+	float: left;
+
+}
+ .g-slider {
+ 	height: 26px;
+	width: 60px;
+	float: left;
+ }
+
+ .btn-grey {
+ 	background-color: #252825;
+ }
 
 #d0 {
 	display: none;

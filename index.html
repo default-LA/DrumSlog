@@ -3,6 +3,7 @@
 <head>
 	<title>DrumSlog</title>
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P|VT323" rel="stylesheet"> 
 </head>
 <body>
 
@@ -841,13 +842,14 @@
 				<div class="tech-sect">
 					<div class="left-sect">
 						<div class="spare">
-							<div class="led-two"></div>
+							
 							spare section
 						</div>
 						<div class="proj-disp">proj name</div>
 						<div class="bpm-sect">
 							<div class="bpm-disp">110bpm</div>
-							<div class="bpm-knob"></div>
+							<div class="bpm-btn">^</div>
+							<div class="bpm-btn">v</div>
 						</div>
 						<div class="play-stop">
 							<div class="play-btn">play</div>
@@ -856,6 +858,7 @@
 					</div>
 					<div class="right-sect">
 						<div class="led-step">
+							<div class="led-two"></div>
 							<div class="led"></div>
 							<div class="led"></div>
 							<div class="led"></div>
@@ -876,8 +879,15 @@
 						<div class="rows">
 						</div>
 						<div class="add-btn">+</div>
-						<div class="ran-btn">randomise</div>
-						<div class="sran-btn">randomise+</div>
+						<div class="cle-btn">clear</div>
+						<div class="ran-btn">random</div>
+						<div class="sran-btn">random+</div>
+						<div class="glitch-container">
+							<div class="glitch-btn">glitch!</div>
+							<div class="glitch-slide">
+								<input type="range" min="1" max="100" value="100" step="1" class="g-slider slider" id="glitch-value">
+							</div>
+						</div>
 					</div>	
 				</div>
 
