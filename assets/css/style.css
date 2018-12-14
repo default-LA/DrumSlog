@@ -13,25 +13,46 @@ body {
 
 .page-container {
 	margin: 0 auto;
-	max-width: 1100px;
+	max-width: 100vw;
 	height: 100vh;
-	background-color: #0c0c0c;
+	background-color: #f9f9f9;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .drum-machine {
 	width: 1000px;
-	height: 550px;
+	height: 570px;
 	max-height: 600px;
 	margin: 0 auto;
-	border: 3px solid dark-gray;
-	box-shadow: 0 0 10px 3px green;
+	background-color: #d8d8d8;
+	box-shadow: 0 0 8px 2px #686868;
 	padding: 5px;
 	position: relative;
+	border: 1px solid #686868;
+
 }
+.border-pulse {
+	box-shadow: 0 0 0 0 #f9f9f9;
+	animation: bPulse 500ms;
+	-o-animation: bPulse 500ms;
+	-moz-animation: bPulse 500ms;
+	-webkit-animation: bPulse 500ms;
+	animation-fill-mode: forwards;
+	
+}
+
+@keyframes bPulse {
+	0% {}
+	10% {box-shadow: 0 0 50px 5px #50c6fc;}
+	100%{} 
+}
+
 .top-bar {
 	width: 100%;
-	background-color: #282828;
-	height: 40px;
+	background-color: #d8d8d8;
+	height: 60px;
 	position: relative;
 
 }
@@ -44,17 +65,23 @@ body {
 	background-color: #7c7c6a;
 }
 .badge {
-	width: 200px;
-	height: 25px;
-	background-color: #D0D0D0;
+	font-family: 'Audiowide', cursive;
+	line-height: 55px;
+	font-size: 2.8em;
+	text-align: right;
+	color: #686868;
+	width: 280px;
+	height: 55px;
+	background-color: #d8d8d8;
 	position: absolute;
-	right: 5px;
-	top: 10px;
+	right: 30px;
+	top: 5px;
 }
+
 .tech-sect {
 	height: 500px;
 	width: 990px;
-	background-color: #232322;
+	background-color: #d8d8d8;
 	padding: 5px;
 
 
@@ -64,7 +91,8 @@ body {
 .left-sect {
 	width: 120px;
 	height: 480px;
-	background-color: #282828;
+	background-color: #d8d8d8;
+	border: 1px solid #686868;
 	margin-right: 10px;
 	float: left;
 	padding: 10px;
@@ -72,27 +100,27 @@ body {
 }
 .spare {
 	border: 1px solid black;
-	width: 115px;
+	width: 118px;
 	height: 280px;
 
 }
 .proj-disp {
 	border: 1px solid black;
-	width: 115px;
+	width: 118px;
 	height: 30px;
 	position: absolute;
 	bottom: 165px;
 }
 .bpm-sect {
-	border: 1px solid black;
-	width: 115px;
+	border: 1px solid black; /*deep blue background */
+	width: 118px;               /*electric blue display*/
 	height: 80px;
 	position: absolute;
 	bottom: 70px;
 }
 
 .bpm-disp {
-	background-color: #FFFCFF;	
+	background-color: #FFFCFF;/*	deep blue*/
 	width: 100%;
 	height: 50%;
 	float: left;
@@ -108,7 +136,7 @@ body {
 
 }
 .play-stop {
-	width: 115px;
+	width: 120px;
 	height: 50px;
 	position: absolute;
 	bottom: 10px;
@@ -130,9 +158,9 @@ body {
 }
 
 .right-sect {
-	background-color: #282828;
+	background-color: #d8d8d8;
 	padding: 5px;
-	width: 750px;
+	width: 820px;
 	height: 490px;
 	float: left;
 }
@@ -141,7 +169,8 @@ body {
 .led-step {
 	width: 815px;
 	height: 30px;
-	background-color: #1c1c1c;
+	background-color: #d8d8d8;
+	border: 1px solid #686868;
 	display: flex;
 	justify-content: flex-start;
 
@@ -155,43 +184,45 @@ body {
 }
 .led {
 	float: left;
-	width: 20px;
-	height: 20px;
-	background-color: #490505;
-	border: 1px solid dark-gray;
+	width: 16px;
+	height: 16px;
+	background-color: #493e3e;
+	border: 1px solid #493e3e;
 	border-radius: 50%;
-	margin-right: 19px;
+	margin-right: 21px;
 
 }
 .rows {
-	background-color: #282828;
+	background-color: #d8d8d8;
 	width: 840px;
-	height: 420px;
+	height: 398px;
 	float: left;
 	overflow-x: hidden;
 	border-bottom: 1px solid black;
 }
 
 .row {
-	margin-top: 5px;
+	margin-bottom: 5px;
 	width: 820px;
 	height: 60px;
-	background-color: #1c1c1c;
+	background-color: #bcbcbc;
+	border: 1px solid #686868;
+
 	
 }
 .left-control {
-	background-color: #1b1b1b;
+	background-color: #bcbcbc; /*deep blue */	
 	width: 150px;
 	height: 100%;
 	float: left;
 	margin-right: 0; 
-	color: white;
+	color: black;
 
 }
 .top-controls {
 	width: 100%;
 	height: 50%;
-	background-color: #1f1f1f;
+	background-color: #bcbcbc;
 
 }
 .top-sect {
@@ -212,8 +243,8 @@ body {
   -webkit-appearance: none;  
   appearance: none;
   width: 85%; 
-  height: 26px; 
-  background: #1f1f1f; 
+  height: 24px; 
+  background: #bcbcbc; 
   outline: none; 
   opacity: 0.7; 
   -webkit-transition: .2s; 
@@ -228,13 +259,13 @@ body {
   appearance: none;
   width: 5px; 
   height: 20px; 
-  background: #4CAF50; 
+  background: #383838; 
   cursor: pointer; 
 }
 .slider::-moz-range-thumb {
   width: 5px; 
   height: 20px; 
-  background: #4CAF50;
+  background: #383838;
   cursor: pointer; 
 }
 
@@ -258,7 +289,6 @@ body {
 
 
 .solo-led {
-
 	width: 40%;
 	height: 40%;
 	border-radius: 50%;
@@ -379,17 +409,21 @@ body {
 .switch {
 	height: 30px;
 	width: 30px;
-	border: 1px solid #043d0a;
+	border: 1px solid #828282;
 	float: left;
 	margin-right: 7px;
 }
 
 .active-switch {	
-	background-color: #10f228;	
-	box-shadow: 0 0 15px 3px #10f228;
-	border: 1px solid #10a51a;
+	background-color: #effcff;
+	box-shadow: 0 0 15px 4px #effcff;/*, #ffffe2 0px 0px 4px inset;*/
+	border: 1px solid #effcff;
+	z-index: 20;
 
 
+}
+.unactive-switch {
+	background-color: #828282;	
 }
 .step-blink {
 	animation: blinky 40ms;
@@ -408,9 +442,7 @@ body {
 	} 
 }
 
-.unactive-switch {
-	background-color: #043d0a;	
-}
+
 
 .add-remove {
 	height: 14px;
@@ -430,11 +462,12 @@ body {
 
 .red-led-lit {
 	background-color: #ff1e1e;
-	box-shadow: 0 0 10px 5px #ff1e1e;
-	animation: ledOut 200ms;
-	-o-animation: ledOut 200ms;
-	-moz-animation: ledOut 200ms;
-	-webkit-animation: ledOut 200ms;
+	border: 1px solid #ff1e1e;
+	box-shadow: 0 0 10px 3px #ff1e1e;
+	animation: ledOut 150ms;
+	-o-animation: ledOut 150ms;
+	-moz-animation: ledOut 150ms;
+	-webkit-animation: ledOut 150ms;
 	animation-fill-mode: forwards;
 	
 }
@@ -443,8 +476,8 @@ body {
 	from {}
 	to {
 		
-		background-color: #490505;
-		border: 1px solid dark-gray;
+		background-color: #493e3e;
+		border: 1px solid #493e3e;
 		box-shadow: 0 0 0 0 #000000;
 
 	} 
@@ -452,8 +485,9 @@ body {
 
 .led-two {
 	/*float: left;*/
-	margin-right: 20px;
+	margin-right: 22px;
 	width: 150px;
+	max-width: 150px;
 	height: 100%;
 	background-color: #010121;
 	border: 1px solid dark-gray;
@@ -492,6 +526,21 @@ body {
 
 	} 
 }
+.blur {
+	filter: blur(2px);
+}
+
+.shadow {
+	height: 100%;
+	width: 100%;
+	background-color: #000000;
+	position: absolute;
+	opacity: 0.3;
+	top: 0;
+	left: 0;
+	z-index: 998;
+	display: none;
+}
 
 .sound-select-popup {
 	height: 505px;
@@ -500,14 +549,12 @@ body {
 	top: 25px;
 	left: 95px;
 	z-index: 999;
-	background: rgb(0, 0, 0); /*fallback */
-	background: rgba(0, 0, 0, 0.8); 
+	background: rgb(233, 233, 233); /*fallback */
+	background: rgba(233, 233, 233, 0.95); 
 	border: 1px solid green;
-	/*opacity: 0.9;*/
-	color: green;
+	color: #444444;
 	text-decoration: none;
 	display: none;
-	/*backdrop-filter: blur(10px);*/
 
 }
 
@@ -516,7 +563,7 @@ body {
 	position: relative;
 	height: 430px;
 	width: 190px;
-	border: 1px solid green;
+	border: 1px solid #444444;
 	float: left;
 	top: 10px;
 	left: 10px;
@@ -538,9 +585,10 @@ body {
 .okay-btn {
 	width: 190px;
 	height: 100%;
-	border: 1px solid green;
+	line-height: 43px;
+	border: 1px solid #444444;
 	float: left;
-	color: green;
+	color: #444444;
 	margin-right: 10px;
 
 }
@@ -548,21 +596,22 @@ body {
 .canc-btn {
 	width: 190px;
 	height: 100%;
-	border: 1px solid green;
+	line-height: 43px;
+	border: 1px solid #444444;
 	float: left;
-	color: green;
+	color: #444444;
 
 }
 
 .okay-btn:hover {
-	background-color: green;
-	color: black;
+	background-color: #444444;
+	color: #eaeaea;
 
 }
 
 .canc-btn:hover {
-	background-color: green;
-	color: black;
+	background-color: #444444;
+	color: #eaeaea;
 }
 
 .menus {
@@ -584,14 +633,14 @@ li {
 }
 
 li:hover{
-	color: black;
-	background-color: green;
+	color: #eaeaea;
+	background-color: #444444;
 	cursor: default;
 }
 
 .menu-toggle {
-	color: black;
-	background-color: green;
+	color: #eaeaea;
+	background-color: #444444;
 }
 .menu-folder-one {
 	position: absolute;
@@ -633,14 +682,28 @@ li:hover{
 
 .add-btn {
 	position: absolute;
-	bottom: 15px;
-	left: 225px;
+	bottom: 20px;
+	left: 190px;
 	height: 30px;
-	width: 30px;
-	background-color: blue;
+	width: 100px;
+	text-align: left;
+	line-height: 30px;
+	font-size: 0.8em;
+}
+
+.add-but{
+	height: 28px;
+	width: 28px;
+	margin-right: 10px;
 	border-radius: 50%;
 	text-align: center;
 	line-height: 30px;
+	float: left;
+	font-size: 1.2em;
+	font-weight: bold;
+	border: 1px solid #686868;
+
+
 }
 
 .cle-btn {
