@@ -1,5 +1,5 @@
 # DS-606c (*formerly DrumSlog*)
-The DS-606c is a simple drum machine built using JavaScript/jQuery, HTML and CSS. It takes advantage of the howler.js audio library for sample playback to enable smooth playback of multiple sounds, and the ability to control each sound (volume, speed, pan, etc) in real time. The program features a Random and Random+ button, generates random combinations of sounds and steps, generating it's own drum patterns.
+The DS-606c is a drum machine built using JavaScript/jQuery, HTML and CSS. It takes advantage of the howler.js audio library for sample playback to enable smooth playback of multiple sounds, and the ability to control each sound (volume, speed, pan, etc) in real time. The program features a Random and Random+ button, generates random combinations of sounds and steps, generating it's own drum patterns.
 
 
 ## Motivation
