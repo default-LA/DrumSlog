@@ -49,7 +49,9 @@ To change the sound of a row, click the name of the sound in the red LED display
 
 ## Known Issues / Bugs
 
-As it currently stands, the project runs perfectly in Firefox, but has some issues running smoothly in Google Chrome. I have stripped down the code to it's core (just a loop with sounds), and it still has trouble keeping a constant tempo, which makes me think it may be an issue with Chromes ability to run JS with audio. I welcome any optimisation suggestions!
+As it currently stands, the project runs perfectly in most browsers, except for Google Chrome running on Linux. I have stripped down the code to it's core (just a loop with sounds), and it still has trouble keeping a constant tempo, which makes me think it may be an issue with Chromes ability to run JS with audio when running in a Linux environent. I welcome any optimisation suggestions!  
+
+There is also a MUTE bug. Sometimes the functionality is reversed (sound can be heard when MUTE is active, and vice-versa). Something isn't checking the rows MUTE state.
 
 
 ## Future Improvements
