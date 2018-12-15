@@ -3,7 +3,7 @@ The DS-606c is a simple drum machine built using JavaScript/jQuery, HTML and CSS
 
 
 ## Motivation
-I wanted to build a web-based drum machine that supported the feature of adding/removing rows to the project, and the user could choose from a soundbank which sound(s) they want to add. This could enable the user to create highly customisable drum patterns, with control over different paremeters of each sound.
+I wanted to build a web-based drum machine that supported the feature of adding/removing rows to the project, and the user could choose from a soundbank which sound(s) they want to add. This could enable the user to create highly customisable drum patterns, with control over different parameters of each sound.
 
 
 ## Status
