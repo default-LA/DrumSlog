@@ -39,9 +39,10 @@ var $visFolderFour = $("#d" + 0 + 0 + 0);
 var selectedSound = "none";
 var selectRow = "none";
 var glitchPlay = false;
+var clicked = false;
 var muted = [false, false, false, false, false, false, false, false, false, false];
 
-$(".bpm-disp").text(bpm)
+$(".bpm-disp").text(bpm + " bpm")
 
 
 function drawRow(){
@@ -63,7 +64,7 @@ function drawRow(){
 								</div>
 								<div class="inst-blink"></div>
 								<div class="step-btn" id="step-btn` + rowNumber + `">
-								<div class="add-remove">-</div>
+								<div class="add-remove"><div class="white-rec"></div></div>
 								</div>
 							</div>`);
 	$(".rows").append($newRow);
@@ -154,23 +155,38 @@ function muteState(){
 } //mute state array function
 
 $(".play-btn").click(function(){
+	$(this).addClass("btn-inset");
 		if (playing !== true){
 			startLoop()
 		} else {return;}
 }); //play loop
 
-$(".stop-btn").click(function(){
+
+$(".left-sect").on("mousedown", ".stop-btn", function(){
 	stop();
-	console.log("stopped");
+	$(".play-btn").removeClass("btn-inset");
+	$(".stop-btn").addClass("btn-inset");
+	clicked = true;
 }); //play/stop button function
+
+$(".left-sect").on("mouseup", ".stop-btn", function(){
+	if (clicked){
+		clicked = false;
+		$(".stop-btn").removeClass("btn-inset");
+
+	}
+});
 
 
 $(".bpm-up").on("mousedown", function(){	
+	clicked = true
+	$(this).addClass("btn-inset");
+	
 	if (bpm >= 220){
 		return;
 	} else {
 		bpm++;
-		$(".bpm-disp").text(bpm);
+		$(".bpm-disp").text(bpm + " bpm");
 		$(".bpm-down").removeClass("btn-grey");
 		if (bpm >= 220){
 			$(this).addClass("btn-grey");
@@ -179,18 +195,34 @@ $(".bpm-up").on("mousedown", function(){
 	}
 }); //bpm up
 
-$(".bpm-down").click(function(){	
+$(".bpm-down").on("mousedown", function(){
+	clicked = true
+	$(this).addClass("btn-inset");	
 	if (bpm <= 30){
 		return;
 	} else {
 		bpm--;
 		$(".bpm-up").removeClass("btn-grey");
-		$(".bpm-disp").text(bpm);
+		$(".bpm-disp").text(bpm + " bpm");
 		if (bpm <= 30){
 			$(this).addClass("btn-grey");
 		}		
 	}
 }); //bpm down
+$(".left-sect").on("mouseup", ".bpm-up", function(){
+	if (clicked){
+		clicked = false;
+		$(this).removeClass("btn-inset");
+
+	}
+});
+$(".left-sect").on("mouseup", ".bpm-down", function(){
+	if (clicked){
+		clicked = false;
+		$(this).removeClass("btn-inset");
+
+	}
+});
 
 function loadSound(){
 	temp.map(function(obj){
@@ -271,29 +303,66 @@ $(".right-sect").on("click", ".sample-disp", function(){
 
 });
 
-$(".right-sect").on("click", ".add-btn", function(){
+$(".right-sect").on("mousedown", ".add-but", function(){
+	$(this).addClass("btn-inset");
+	clicked = true;
 	if (tempNumber < 10){
 		addNew();
 		if (tempNumber >= 10){
-			$(".add-btn").addClass("btn-grey");
+			$(".add-but").addClass("btn-grey");
 		}
-	} else {return;}
-	
+	} else {return;}	
+});
+$(".right-sect").on("mouseup", ".add-but", function(){
+	if (clicked){
+		$(this).removeClass("btn-inset");
+		clicked = false;
+	}
 });
 
-$(".cle-btn").click(function(){
+
+$(".cle-btn").on("mousedown", function(){
+	$(this).addClass("btn-inset");
+	clicked = true
 	clearAll();
 });
 
-$(".ran-btn").click(function(){
-	randomise();
+$(".cle-btn").on("mouseup", function(){
+	if (clicked){
+		clicked = false
+		$(this).removeClass("btn-inset");
+	}
 });
 
-$(".sran-btn").click(function(){
+$(".ran-btn").on("mousedown", function(){
+	randomise();
+	$(this).addClass("btn-inset");
+	clicked = true
+});
+$(".ran-btn").on("mouseup", function(){
+	if (clicked){
+		clicked = false
+		$(this).removeClass("btn-inset");
+	}
+});
+
+$(".sran-btn").on("mousedown", function(){
+	$(this).addClass("btn-inset");
+	clicked = true
 	srandomise();
 	randomise();
 });
+
+$(".sran-btn").on("mouseup", function(){
+	if (clicked){
+		clicked = false
+		$(this).removeClass("btn-inset");
+	}
+});
+
 $(".glitch-btn").click(function(){
+	$(this).toggleClass("orange");
+	$(this).toggleClass("btn-inset");
 	glitch();
 })
 
@@ -359,7 +428,7 @@ $(".right-sect").on("click", ".add-remove", function(){
 		temp.splice(rowClicked, 1);
 		tempNumber--;
 		if (tempNumber <= 9){
-			$(".add-btn").removeClass("btn-grey");
+			$(".add-but").removeClass("btn-grey");
 		}
 	});	
 });
@@ -368,7 +437,10 @@ $(".right-sect").on("click", ".add-remove", function(){
 function glitch(){	
 	if (glitchPlay !== true){
 		glitchPlay = true;
-	} else {glitchPlay = false}	
+	} else {
+		glitchPlay = false
+		
+	}	
 }
 
 function srandomise(){
@@ -389,10 +461,10 @@ function startLoop(){
 
 			}, 10);
 			if (s == 0 || s == 4 || s == 8 || s == 12) {
-				// $(".drum-machine").addClass("border-pulse");
-				// setTimeout(function () { 
-				// $(".drum-machine").removeClass("border-pulse");
-				// 	}, 200);
+				$(".tri-play").addClass("tri-play-lit");				
+				setTimeout(function () { 
+					$(".tri-play").removeClass("tri-play-lit");				
+				}, 200);
 
 				if (s == 0){
 					$(".led-two").addClass("three-led-lit");
