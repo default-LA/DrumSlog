@@ -20,15 +20,15 @@ Basic functionality is all working okay, but please see **Known Issues** below.
 
 ## Features
 
-Fully programmable step sequencer  
-The ability to add and remove sequencer rows  
-Individual volume control on each row  
-A sound select popup menu, showing drum/sound categories for the user to browse  
-In-menu sound previews when clicked  
-442 different samples to choose from  
-BPM control  
-Random and Random+ features  
-"Stepper" feature  
+* Fully programmable step sequencer  
+* The ability to add and remove sequencer rows  
+* Individual volume control on each row  
+* A sound select popup menu, showing drum/sound categories for the user to browse  
+* In-menu sound previews when clicked  
+* 442 different samples to choose from  
+* BPM control  
+* Random and Random+ features  
+* "Stepper" feature  
 
 
 ## How To Use
