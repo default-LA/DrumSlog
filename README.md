@@ -55,10 +55,10 @@ As it currently stands, the project runs perfectly in Firefox, but has some issu
 ## Future Improvements
 
 * When SOLO is active, the user should be able to click the same SOLO button again, and changes should revert.  
-* The STEPPER function will also be more complex, which will variate the BPM of each step. This should hopefully create lovely glitchy effects!  
+* The STEPPER function will be more complex, which will variate the BPM of each step. This should hopefully create lovely glitchy effects!  
 * Each row should have Left/Right control, and playback speed/pitch control  
 * Master volume control
 * Eventually the project will support a new/save/load/delete project functionality, so that users can save a project for the future.  
-* Also the ability to upload your own sounds and download the users sequence in a playable audio format may be implemented. 
+* The ability to upload your own sounds and download the users sequence in a playable audio format may be implemented. 
 
 
