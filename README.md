@@ -20,29 +20,29 @@ Basic functionality is all working okay, but please see **Known Issues** below.
 
 ## Features
 
-Fully programmable step sequencer
-The ability to add and remove sequencer rows
-Individual volume control on each row
-A sound select popup menu, showing drum/sound categories for the user to browse
-In-menu sound previews when clicked
-442 different samples to choose from
-BPM control
-Random and Random+ features
-"Stepper" feature
+Fully programmable step sequencer  
+The ability to add and remove sequencer rows  
+Individual volume control on each row  
+A sound select popup menu, showing drum/sound categories for the user to browse  
+In-menu sound previews when clicked  
+442 different samples to choose from  
+BPM control  
+Random and Random+ features  
+"Stepper" feature  
 
 
 ## How To Use
 
-**PLAY/STOP** - Plays the current sequence
-**BPM UP/DOWN** - Increases and decreases the tempo of the sequence
-**ADD NEW** - Adds a new row to the project (maximum of 10)
-**Remove Row** (⛔) - Removes the selected row from the project
-**CLEAR** - Clears all active steps from the sequence
-**RANDOM** - Randomises drum pattern with selected sounds
-**RANDOM+** - Randomises drum pattern and sound selection
-**STEPPER** - Randomises the step sequence order
-**MUTE** - Mutes the selected row
-**SOLO** - Mutes all rows except selected
+**PLAY/STOP** - Plays the current sequence  
+**BPM UP/DOWN** - Increases and decreases the tempo of the sequence  
+**ADD NEW** - Adds a new row to the project (maximum of 10)  
+**Remove Row** (⛔) - Removes the selected row from the project  
+**CLEAR** - Clears all active steps from the sequence  
+**RANDOM** - Randomises drum pattern with selected sounds  
+**RANDOM+** - Randomises drum pattern and sound selection  
+**STEPPER** - Randomises the step sequence order  
+**MUTE** - Mutes the selected row  
+**SOLO** - Mutes all rows except selected  
 
 To change the sound of a row, click the name of the sound in the red LED display of the row, or if it is a new row, click "NO SOUND SELETED". This will launch a popup menu which allows you to browse a sound to insert. When you have found a sound you like click OKAY.
 
@@ -54,9 +54,9 @@ As it currently stands, the project runs perfectly in Firefox, but has some issu
 
 ## Future Improvements
 
-When SOLO is active, the user should be able to click the same SOLO button again, and changes should revert.
-The STEPPER function will also be more complex, which will variate the BPM of each step. This should hopefully create lovely glitchy effects!
-Eventually the project will support a new/save/load/delete project functionality, so that users can save a project for the future.
+When SOLO is active, the user should be able to click the same SOLO button again, and changes should revert.  
+The STEPPER function will also be more complex, which will variate the BPM of each step. This should hopefully create lovely glitchy effects!  
+Eventually the project will support a new/save/load/delete project functionality, so that users can save a project for the future.  
 Also the ability to upload your own sounds and download the users sequence in a playable audio format may be implemented. 
 
 
