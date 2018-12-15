@@ -864,7 +864,7 @@ li:hover{
 	float: left;
 	background-color: #ffa114;
 	z-index: 2;
-	/*box-shadow: 0 1px 1px 1px #595959;*/
+	box-shadow: 0 1px 1px 1px #595959;
 
 }
 
