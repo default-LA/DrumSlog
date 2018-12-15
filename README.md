@@ -9,9 +9,15 @@ Basic functionality is all working okay, but please see **Known Issues** below.
 
 ### Screenshots
 
+<<<<<<< HEAD
 ![screenshot](https://raw.githubusercontent.com/default-LA/DrumSlog/master/assets/img/ds-main.png)
 
 ![screenshot](https://raw.githubusercontent.com/default-LA/DrumSlog/master/assets/img/ds-menu.png)
+=======
+![screenshot](https://raw.githubusercontent.com/default-LA/DrumSlog/master/ds-main.png)
+
+![screenshot](https://raw.githubusercontent.com/default-LA/DrumSlog/master/ds-menu.png)
+>>>>>>> 162d09e6654b54019f01dbaa58693015ed607af2
 
 ### Features
 
