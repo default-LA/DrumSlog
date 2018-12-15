@@ -1,23 +1,22 @@
 # DS-606c (*formerly DrumSlog*)
 The DS-606c is a simple drum machine built using JavaScript/jQuery, HTML and CSS. It takes advantage of the howler.js audio library for sample playback to enable smooth playback of multiple sounds, and the ability to control each sound (volume, speed, pan, etc) in real time. The program features a Random and Random+ button, generates random combinations of sounds and steps, generating it's own drum patterns.
 
+
 ## Motivation
 I wanted to build a web-based drum machine that supported the feature of adding/removing rows to the project, and the user could choose from a soundbank which sound(s) they want to add. This could enable the user to create highly customisable drum patterns, with control over different paremeters of each sound.
+
 
 ## Status
 Basic functionality is all working okay, but please see **Known Issues** below.
 
+
 ## Screenshots
 
-<<<<<<< HEAD
 ![screenshot](https://raw.githubusercontent.com/default-LA/DrumSlog/master/assets/img/ds-main.png)
 
 ![screenshot](https://raw.githubusercontent.com/default-LA/DrumSlog/master/assets/img/ds-menu.png)
-=======
-![screenshot](https://raw.githubusercontent.com/default-LA/DrumSlog/master/ds-main.png)
 
-![screenshot](https://raw.githubusercontent.com/default-LA/DrumSlog/master/ds-menu.png)
->>>>>>> 162d09e6654b54019f01dbaa58693015ed607af2
+
 
 ## Features
 
@@ -30,6 +29,7 @@ In-menu sound previews when clicked
 BPM control
 Random and Random+ features
 "Stepper" feature
+
 
 ## How To Use
 
@@ -46,9 +46,11 @@ Random and Random+ features
 
 To change the sound of a row, click the name of the sound in the red LED display of the row, or if it is a new row, click "NO SOUND SELETED". This will launch a popup menu which allows you to browse a sound to insert. When you have found a sound you like click OKAY.
 
+
 ## Known Issues / Bugs
 
 As it currently stands, the project runs perfectly in Firefox, but has some issues running smoothly in Google Chrome. I have stripped down the code to it's core (just a loop with sounds), and it still has trouble keeping a constant tempo, which makes me think it may be an issue with Chromes ability to run JS with audio. I welcome any optimisation suggestions!
+
 
 ## Future Improvements
 
