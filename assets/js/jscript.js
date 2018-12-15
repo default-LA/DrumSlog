@@ -298,7 +298,8 @@ $(".canc-btn").click(function(){
 
 $(".right-sect").on("click", ".sample-disp", function(){
 	selectRow = $(this).parents().eq(1).index();
-	$(".shadow").fadeIn(100, "swing");
+	$(".tech-sect").addClass("blur");
+	$(".badge").addClass("blur");
 	$(".sound-select-popup").fadeIn(100, "swing");
 
 });
@@ -381,8 +382,11 @@ $(".right-sect").on("input", ".volume-slide", function() {
 });
 
 function closeMenu(){
+	$(".tech-sect").removeClass("blur");
+	$(".badge").removeClass("blur");
 	$(".sound-select-popup").fadeOut(100, "swing");
 	$(".sound-select-popup").find("li").removeClass("menu-toggle");
+
 	selectedSound = "none";
 	selectRow = "none";
 	$visFolderTwo.hide();

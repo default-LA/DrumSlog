@@ -20,6 +20,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	overflow: hidden;
 }
 
 .drum-machine {
@@ -33,6 +34,8 @@ body {
 	position: relative;
 	border: 1px solid #686868;
 	border-radius: 3px 3px 3px 3px;
+	overflow: hidden;
+
 
 
 }
@@ -81,7 +84,7 @@ body {
 	height: 55px;
 	background-color: #d8d8d8;
 	position: absolute;
-	right: 30px;
+	right: 27px;
 	top: 5px;
 }
 
@@ -90,10 +93,11 @@ body {
 	width: 990px;
 	background-color: #d8d8d8;
 	padding: 5px;
+}
 
-
-
-
+.blur {
+	/*filter: brightness(50%);*/
+	opacity: 0.6;
 }
 .left-sect {
 	width: 120px;
@@ -131,7 +135,7 @@ body {
 	color: #e20000;
 	text-shadow: 1px 1px 10px #e20000;
 	font-size: 1.4em;
-
+	border-radius: 4px 4px 4px 4px;
 	border: 1px solid black;
 	width: 118px;
 	height: 35px;
@@ -157,6 +161,8 @@ body {
 	height: 50%;
 	line-height: 40px;
 	float: left;
+	border-radius: 4px 4px 4px 4px;
+
 
 	
 }
@@ -666,9 +672,7 @@ body {
 
 	} 
 }
-.blur {
-	filter: blur(2px);
-}
+
 
 .shadow {
 	height: 100%;
@@ -686,15 +690,17 @@ body {
 	height: 505px;
 	width: 820px;
 	position: absolute;
-	top: 25px;
+	top: 35px;
 	left: 95px;
 	z-index: 999;
 	background: rgb(233, 233, 233); /*fallback */
 	background: rgba(233, 233, 233, 0.95); 
-	border: 1px solid green;
+	border: 1px solid #444444;
 	color: #444444;
 	text-decoration: none;
 	display: none;
+	border-radius: 3px 3px 3px 3px;
+
 
 }
 
@@ -708,6 +714,8 @@ body {
 	top: 10px;
 	left: 10px;
 	margin-right: 10px;
+	border-radius: 3px 3px 3px 3px;
+
 }
 
 .ok-btns {
@@ -720,26 +728,33 @@ body {
 	/*border: 1px solid blue;*/
 	float: left;
 
+
 }
 
 .okay-btn {
 	width: 190px;
 	height: 100%;
 	line-height: 43px;
+	font-size: 1.3em;
 	border: 1px solid #444444;
 	float: left;
 	color: #444444;
 	margin-right: 10px;
+	border-radius: 3px 3px 3px 3px;
+
 
 }
 
 .canc-btn {
 	width: 190px;
 	height: 100%;
+	font-size: 1.3em;
 	line-height: 43px;
 	border: 1px solid #444444;
 	float: left;
 	color: #444444;
+	border-radius: 3px 3px 3px 3px;
+
 
 }
 
@@ -760,6 +775,8 @@ body {
 	height: 100%;
 	border: solid 1px red;
 	color: white;
+	border-radius: 3px 3px 3px 3px;
+
 }
 
 ul {
