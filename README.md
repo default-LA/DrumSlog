@@ -10,6 +10,12 @@ I wanted to build a web-based drum machine that supported the feature of adding/
 Basic functionality is all working okay, but please see **Known Issues** below.
 
 
+## Live Demo  
+
+Click the link below for a working demo: 
+
+[https://default-la.github.io/DrumSlog/](https://default-la.github.io/DrumSlog/)
+
 ## Screenshots
 
 ![screenshot](https://raw.githubusercontent.com/default-LA/DrumSlog/master/assets/img/ds-main.png)
