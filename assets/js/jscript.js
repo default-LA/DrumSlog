@@ -375,9 +375,10 @@ $(".right-sect").on("input", ".volume-slide", function() {
 	temp[slidey].audio._volume = volNum;
 	if (temp[slidey].audio._volume <= 0.01){
 		$(".mute-led").eq(slidey).addClass("mute-lit");
-		muted[slidey] = false;
+		muted[slidey] = true;
 	} else {
 		$(".mute-led").eq(slidey).removeClass("mute-lit");
+		muted[slidey] = false;
 	}
 });
 
