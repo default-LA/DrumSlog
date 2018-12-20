@@ -7,8 +7,9 @@ I wanted to build a web-based drum machine that supported the feature of adding/
 
 
 ## Status
-Basic functionality is all working okay, but please see **Known Issues** below.
+Basic functionality is all working okay, but please see **Known Issues** below.  
 
+I am currently working on a 'live' version where users can register a simple username/password and use a save functionality. This will create some persistence so patterns (probably 7 max per username) can be saved. There will also be an option to share your patterns to other users, and the options to load/play/edit/rate other users shared patterns.
 
 ## Live Demo  
 
@@ -57,7 +58,6 @@ To change the sound of a row, click the name of the sound in the red LED display
 
 As it currently stands, the project runs perfectly in most browsers, except for Google Chrome running on Linux. I have stripped down the code to it's core (just a loop with sounds), and it still has trouble keeping a constant tempo, which makes me think it may be an issue with Chromes ability to run JS with audio when running in a Linux environent. I welcome any optimisation suggestions!  
 
-There is also a MUTE bug. Sometimes the functionality is reversed (sound can be heard when MUTE is active, and vice-versa). Something isn't checking the rows MUTE state.
 
 
 ## Future Improvements
