@@ -7,15 +7,15 @@ I wanted to build a web-based drum machine that supported the feature of adding/
 
 
 ## Status
-Basic functionality is all working okay, but please see **Known Issues** below.  
+This project is complete. A live version has been created (see below) using PHP. This allows you to register an account, login, and share patterns using the "social" button. You can also view and customise other people's creations.
 
-I am currently working on a 'live' version where users can register a simple username/password and use a save functionality. This will create some persistence so patterns (probably 7 max per username) can be saved. There will also be an option to share your patterns to other users, and the options to load/play/edit/rate other users shared patterns.
+The updated PHP files will be uploaded soon.
 
 ## Live Demo  
 
 Click the link below for a working demo: 
 
-[https://default-la.github.io/DrumSlog/](https://default-la.github.io/DrumSlog/)
+[https://lgacode.co.uk/drumslog](https://lgacode.co.uk/drumslog/)
 
 ## Screenshots
 
