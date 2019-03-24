@@ -15,7 +15,7 @@ The updated PHP files will be uploaded soon.
 
 Click the link below for a working demo: 
 
-[https://lgacode.co.uk/drumslog](https://lgacode.co.uk/drumslog/)
+[http://lgacode.co.uk/drumslog](https://lgacode.co.uk/drumslog/)
 
 ## Screenshots
 
