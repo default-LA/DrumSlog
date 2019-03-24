@@ -13,9 +13,11 @@ The updated PHP files will be uploaded soon.
 
 ## Live Demo  
 
-Click the link below for a working demo: 
-
+Live version is up and running!
 [http://lgacode.co.uk/drumslog](https://lgacode.co.uk/drumslog/)
+
+You can still demo the GitHub offline environment here:
+[https://default-la.github.io/DrumSlog/](https://default-la.github.io/DrumSlog/)
 
 ## Screenshots
 
