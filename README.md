@@ -21,9 +21,9 @@ You can still demo the GitHub offline environment here:
 
 ## Screenshots
 
-![screenshot](https://raw.githubusercontent.com/default-LA/DrumSlog/master/assets/img/ds-main.png)
+![screenshot](https://www.dropbox.com/s/hr6ru7oarsxtle5/ds1.png)
 
-![screenshot](https://raw.githubusercontent.com/default-LA/DrumSlog/master/assets/img/ds-menu.png)
+![screenshot](https://www.dropbox.com/s/82m14dvj5dh29h1/ds2.png)
 
 
 
